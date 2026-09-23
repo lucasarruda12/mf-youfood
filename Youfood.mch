@@ -11,12 +11,16 @@ INVARIANT
     queue : 0..29 --> NAT &
     begin : 0..29 &
     end : 0..29 &
-    sze: 0..29 &
+    sze: 0..30 &
     what : NAT +-> POW(PRODUCT) &
     where : NAT +-> ADDRESS &
     who : NAT +-> USER &
     state : NAT +-> ORDER_STATE &
-    current_ident : NAT
+    current_ident : NAT &
+
+    dom(what) = dom(where) &
+    dom(where) = dom(who) &
+    dom(who) = dom(state)
 
 INITIALISATION
     queue, what, where, who, state, current_ident 
@@ -30,10 +34,10 @@ make_request(pps, aa, uu) =
     pps : POW(PRODUCT) &
     aa : ADDRESS &
     uu : USER &
+    sze < 30 &
     uu /: ran(who)
   THEN
     queue(end) := current_ident ||
-    begin := begin + 1 ||
     end := end + 1 ||
     sze := sze + 1 ||
 
@@ -62,7 +66,7 @@ deliver_order(ident) =
     queue(end - 1) = ident 
   THEN
     state(ident) := DELIVERED ||
-    end := end - 1 ||
+    end := begin + 1 ||
     sze := sze - 1
   END
 
