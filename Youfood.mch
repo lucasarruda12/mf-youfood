@@ -118,10 +118,14 @@ deliver_order(ii, dd) =
     driver_storage(dd) := driver_storage(dd) - 1
   END;
 
-// TODO
 driver_return(dd) =
-  // mudar o estado do motorista
-  // o storage tem que estar vazio
-  order_state := order_state
+  PRE
+    dd : dom(driver_state) &
+    dd : dom(driver_storage) &
+    driver_state(dd) = BUSY &
+    driver_storage(dd) = 0
+  THEN
+    driver_state(dd) := AVAILABLE
+  END;
 
 END
