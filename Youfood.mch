@@ -93,12 +93,18 @@ assign_order(ii, dd) =
     // aumentar o storage
   END;
 
-// TODO
 send_driver(dd) = 
-  // mudar o estado do motorista
-  // mudar o estado do pedido
-  order_state := order_state
-//TODO
+  PRE
+    dd : dom(driver_state) &
+    dd : dom(driver_storage) &
+    dd : dom(driver_route) &
+    driver_state(dd) = AVAILABLE &
+    driver_storage(dd) > 0
+  THEN
+    driver_state(dd) := BUSY ||
+    order_state := order_state <+ (ran(driver_route(dd)) * {MOVING})
+  END;
+
 deliver_order(ii, dd) =
   // Muda o estado do pedido
   // Diminui o storage
