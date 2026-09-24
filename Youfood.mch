@@ -106,9 +106,17 @@ send_driver(dd) =
   END;
 
 deliver_order(ii, dd) =
-  // Muda o estado do pedido
-  // Diminui o storage
-  order_state := order_state
+  PRE
+    ii : dom(order_state) &
+    dd : dom(driver_state) &
+    dd : dom(driver_storage) &
+    order_state(ii) = MOVING &
+    driver_state(dd) = BUSY &
+    driver_storage(dd) > 0
+  THEN
+    order_state(ii) := DELIVERED ||
+    driver_storage(dd) := driver_storage(dd) - 1
+  END;
 
 // TODO
 driver_return(dd) =
