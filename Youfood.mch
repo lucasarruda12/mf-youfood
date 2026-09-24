@@ -1,24 +1,27 @@
-MACHINE YOUFOOD
+MACHINE Youfood
 
 SETS
-    PRODUCT; USER;
-    ORDER_STATE = {PLACED, PREPARING, READY, MOVING, DELIVERED};
+    PRODUCT; USER; ADDRESS;
+    ORDER_STATE = {PREPARING, READY, MOVING, DELIVERED};
     DRIVER_STATE = {AVAILABLE, BUSY}
 
 CONSTANTS
   QUEUE_SIZE,
   MAX_STORAGE,
   DRIVERS,
-  MAX_DISTANCE
+  MAX_DISTANCE,
+  MAX_ROUTE
 
 PROPERTIES
   QUEUE_SIZE : NAT &
+  MAX_STORAGE : NAT &
   DRIVERS : NAT &
-  ROUTE_SIZE : NAT &
+  MAX_ROUTE : NAT &
   MAX_DISTANCE : NAT
 
 VARIABLES
-    queue, begin, end, sze, what, where, who, state, current_ident
+    queue, begin, end, sze, what, where, who, current_ident,
+    order_state, driver_state, driver_storage, driver_route
 
 INVARIANT
     queue : 0..QUEUE_SIZE --> NAT &
@@ -26,7 +29,7 @@ INVARIANT
     end : 0..QUEUE_SIZE &
     sze: 0..(QUEUE_SIZE + 1) &
     what : NAT +-> POW(PRODUCT) &
-    where : NAT +-> (NAT * NAT) & // ISSO AQUI MUDA (DISTANCIA ENTRE DOIS PONTOS)
+    where : NAT +-> ADDRESS &
     who : NAT +-> USER &
     order_state : NAT +-> ORDER_STATE &
     current_ident : NAT &
@@ -37,7 +40,7 @@ INVARIANT
 
     driver_state : 0..DRIVERS +-> DRIVER_STATE &
     driver_storage : 0..DRIVERS +-> NAT &
-    driver_route : 0..DRIVERS +-> (0..MAX_ROUTE --> NAT) &
+    driver_route : 0..DRIVERS +-> (0..MAX_ROUTE --> NAT)
 
     // !dd. (dd : 0..DRIVERS -> driver_storage(dd) < MAX_STORAGE) &
     // !dd. (dd : 0..DRIVERS & driver_state(dd) = AVAILABLE -> driver_route(dd) = {})
@@ -47,8 +50,11 @@ INVARIANT
 
 INITIALISATION
     queue, what, where, who, order_state, current_ident 
-	:= (0..29) * {0}, {}, {}, {}, {}, 1;
-    begin, end, sze := 0,0,0
+	:= (0..QUEUE_SIZE) * {0}, {}, {}, {}, {}, 1 ||
+    begin, end, sze := 0,0,0 ||
+    driver_state := {} ||
+    driver_storage := {} ||
+    driver_route := {}
 
 OPERATIONS
 
@@ -56,9 +62,9 @@ make_request(pps, aa, uu) =
   PRE
     pps : POW(PRODUCT) &
     aa : ADDRESS &
-    uu : USER &
+    uu : USER &    
     sze < 30 &
-    (!pp. pp : dom(queue) -> who(pp) /= uu)
+    !(pp). (pp : dom(queue) => who(pp) /= uu)
   THEN
     queue(end) := current_ident ||
     end := end + 1 ||
@@ -93,21 +99,39 @@ assign_order(ii, dd) =
     // aumentar o storage
   END;
 
-// TODO
 send_driver(dd) = 
-  // mudar o estado do motorista
-  // mudar o estado do pedido
-  order_state := order_state
-//TODO
-deliver_order(ii, dd) =
-  // Muda o estado do pedido
-  // Diminui o storage
-  order_state := order_state
+  PRE
+    dd : dom(driver_state) &
+    dd : dom(driver_storage) &
+    dd : dom(driver_route) &
+    driver_state(dd) = AVAILABLE &
+    driver_storage(dd) > 0
+  THEN
+    driver_state(dd) := BUSY ||
+    order_state := order_state <+ (ran(driver_route(dd)) * {MOVING})
+  END;
 
-// TODO
+deliver_order(ii, dd) =
+  PRE
+    ii : dom(order_state) &
+    dd : dom(driver_state) &
+    dd : dom(driver_storage) &
+    order_state(ii) = MOVING &
+    driver_state(dd) = BUSY &
+    driver_storage(dd) > 0
+  THEN
+    order_state(ii) := DELIVERED ||
+    driver_storage(dd) := driver_storage(dd) - 1
+  END;
+
 driver_return(dd) =
-  // mudar o estado do motorista
-  // o storage tem que estar vazio
-  order_state := order_state
+  PRE
+    dd : dom(driver_state) &
+    dd : dom(driver_storage) &
+    driver_state(dd) = BUSY &
+    driver_storage(dd) = 0
+  THEN
+    driver_state(dd) := AVAILABLE
+  END
 
 END
