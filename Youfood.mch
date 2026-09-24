@@ -132,6 +132,6 @@ driver_return(dd) =
     driver_storage(dd) = 0
   THEN
     driver_state(dd) := AVAILABLE
-  END;
+  END
 
 END
