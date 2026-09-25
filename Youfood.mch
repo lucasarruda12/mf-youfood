@@ -53,11 +53,7 @@ INVARIANT
 
     driver_state : 0..DRIVERS --> DRIVER_STATE &
     driver_storage : 0..DRIVERS --> 0..MAX_STORAGE &
-    
-    /* 1. MAX_ROUTE is a valid array index: Array domain is 0..MAX_ROUTE */
     driver_route : 0..DRIVERS --> (0..MAX_ROUTE --> NAT) &
-    
-    /* 2. Route length capacity ranges from 0 to MAX_ROUTE + 1 */
     driver_route_len : 0..DRIVERS --> 0..(MAX_ROUTE + 1) &
 
     /* Na fila só tem coisas válidas */
