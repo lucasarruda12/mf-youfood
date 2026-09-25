@@ -171,7 +171,6 @@ send_driver(dd) =
     driver_storage(dd) > 0
   THEN
     driver_state(dd) := BUSY ||
-    /* Update non-zero assigned route order states to MOVING */
     order_state := order_state <+ ((ran(driver_route(dd)) - {0}) * {MOVING})
   END;
 
