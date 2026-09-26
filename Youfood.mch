@@ -37,9 +37,9 @@ VARIABLES
     driver_route_len
 
 INVARIANT
-    queue : 0..QUEUE_SIZE --> NAT &
-    begin : 0..QUEUE_SIZE &
-    end : 0..QUEUE_SIZE &
+    queue : 0..(QUEUE_SIZE - 1) --> NAT &
+    begin : 0..(QUEUE_SIZE - 1) &
+    end : 0..(QUEUE_SIZE - 1) &
     sze: 0..(QUEUE_SIZE + 1) &
     what : NAT +-> POW(PRODUCT) &
     where : NAT +-> ADDRESS &
@@ -51,35 +51,35 @@ INVARIANT
     dom(where) = dom(who) &
     dom(who) = dom(order_state) &
 
-    driver_state : 0..DRIVERS --> DRIVER_STATE &
-    driver_storage : 0..DRIVERS --> 0..MAX_STORAGE &
-    driver_route : 0..DRIVERS --> (0..MAX_ROUTE --> NAT) &
-    driver_route_len : 0..DRIVERS --> 0..(MAX_ROUTE + 1) &
+    driver_state : 1..DRIVERS --> DRIVER_STATE &
+    driver_storage : 1..DRIVERS --> 0..MAX_STORAGE &
+    driver_route : 1..DRIVERS --> (0..(MAX_ROUTE - 1) --> NAT) &
+    driver_route_len : 1..DRIVERS --> 0..MAX_ROUTE &
 
     /* Na fila só tem coisas válidas */
     ran(queue) - {0} <: dom(order_state) &
 
     /* Os entregadores só levam coisas válidas */
-    !(dd).(dd : 0..DRIVERS => ran(driver_route(dd)) - {0} <: dom(order_state)) &
+    !(dd).(dd : 1..DRIVERS => ran(driver_route(dd)) - {0} <: dom(order_state)) &
 
     /* Array com default value 0 para vagas livres até MAX_ROUTE */
-    !(dd, ii).(dd : 0..DRIVERS & ii : 0..(driver_route_len(dd) - 1) => 
+    !(dd, ii).(dd : 1..DRIVERS & ii : 0..(driver_route_len(dd) - 1) => 
       driver_route(dd)(ii) /= 0) &
-    !(dd, ii).(dd : 0..DRIVERS & ii : driver_route_len(dd)..MAX_ROUTE => 
+    !(dd, ii).(dd : 1..DRIVERS & ii : driver_route_len(dd)..(MAX_ROUTE - 1) => 
       driver_route(dd)(ii) = 0) &
 
     /* Entregadores sem nada na bag não devem estar carregando nada */
-    !(dd).(dd : 0..DRIVERS & driver_state(dd) = AVAILABLE & driver_route_len(dd) = 0 => 
-      driver_storage(dd) = 0 & driver_route(dd) = (0..MAX_ROUTE) * {0})  &
+    !(dd).(dd : 1..DRIVERS & driver_state(dd) = AVAILABLE & driver_route_len(dd) = 0 => 
+      driver_storage(dd) = 0 & driver_route(dd) = (0..(MAX_ROUTE - 1)) * {0})  &
 
     /* Todos os pedidos na bag estão prontos ou em movimento */
-    !(dd, ii).(dd : 0..DRIVERS & 
+    !(dd, ii).(dd : 1..DRIVERS & 
       ii : 0..(driver_route_len(dd) - 1) &
       driver_route(dd)(ii) : dom(order_state) => 
       order_state(driver_route(dd)(ii)) : {READY, MOVING}) &
 
     /* Todos os itens ativos numa bag têm o mesmo estado */
-    !(dd, ii1, ii2).(dd : 0..DRIVERS & 
+    !(dd, ii1, ii2).(dd : 1..DRIVERS & 
       ii1 : 0..(driver_route_len(dd) - 1) & 
       ii2 : 0..(driver_route_len(dd) - 1) &
       driver_route(dd)(ii1) : dom(order_state) &
@@ -92,20 +92,20 @@ INVARIANT
     !(ii).(ii : ran(queue) - {0} => order_state(ii) : {PREPARING, READY}) &
 
     /* Se um motorista estiver AVAILABLE, todos os pedidos na rota dele ainda devem estar READY */
-    !(dd).(dd : 0..DRIVERS & driver_state(dd) = AVAILABLE =>
+    !(dd).(dd : 1..DRIVERS & driver_state(dd) = AVAILABLE =>
       !(ii).(ii : ran(driver_route(dd)) - {0} => order_state(ii) = READY)) &
 
     /* Se um motorista estiver BUSY, pedidos ainda não entregues em sua rota devem estar MOVING */
-    !(dd).(dd : 0..DRIVERS & driver_state(dd) = BUSY =>
+    !(dd).(dd : 1..DRIVERS & driver_state(dd) = BUSY =>
       !(ii).(ii : ran(driver_route(dd)) - {0} & order_state(ii) /= DELIVERED => 
         order_state(ii) = MOVING)) &
 
     /* Todo pedido atualmente marcado como MOVING deve existir na rota de um motorista BUSY */
     !(ii).(ii : dom(order_state) & order_state(ii) = MOVING =>
-      #(dd).(dd : 0..DRIVERS & driver_state(dd) = BUSY & ii : ran(driver_route(dd))))
+      #(dd).(dd : 1..DRIVERS & driver_state(dd) = BUSY & ii : ran(driver_route(dd))))
 
 INITIALISATION
-    queue := (0..QUEUE_SIZE) * {0} ||
+    queue := (0..(QUEUE_SIZE - 1)) * {0} ||
     begin := 0 ||
     end := 0 ||
     sze := 0 ||
@@ -114,10 +114,10 @@ INITIALISATION
     who := {} ||
     order_state := {} ||
     current_ident := 1 ||
-    driver_state := (0..DRIVERS) * {AVAILABLE} ||
-    driver_storage := (0..DRIVERS) * {0} ||
-    driver_route := (0..DRIVERS) * {(0..MAX_ROUTE) * {0}} ||
-    driver_route_len := (0..DRIVERS) * {0}
+    driver_state := (1..DRIVERS) * {AVAILABLE} ||
+    driver_storage := (1..DRIVERS) * {0} ||
+    driver_route := (1..DRIVERS) * {(0..(MAX_ROUTE - 1)) * {0}} ||
+    driver_route_len := (1..DRIVERS) * {0}
 
 OPERATIONS
 
@@ -157,13 +157,12 @@ assign_order(ii, dd) =
     sze > 0 &
     ii = queue(begin) &
 
-    dd : 0..DRIVERS &
+    dd : 1..DRIVERS &
     driver_state(dd) = AVAILABLE &
     
     driver_storage(dd) + card(what(ii)) <= MAX_STORAGE &
     
-    /* 3. Precondition ensures room exists up to MAX_ROUTE */
-    driver_route_len(dd) <= MAX_ROUTE &
+    driver_route_len(dd) < MAX_ROUTE &
 
     (driver_route_len(dd) > 0 => 
       driver_route(dd)(driver_route_len(dd) - 1) : dom(where) &
@@ -174,7 +173,7 @@ assign_order(ii, dd) =
     sze := sze - 1 ||
 
     driver_storage(dd) := driver_storage(dd) + card(what(ii)) ||
-    driver_route(dd)(driver_route_len(dd)) := ii ||
+    driver_route := driver_route <+ {dd |-> (driver_route(dd) <+ {driver_route_len(dd) |-> ii})} ||
     driver_route_len(dd) := driver_route_len(dd) + 1
   END;
 
@@ -195,14 +194,36 @@ deliver_order(ii, dd) =
     ii : dom(order_state) &
     dd : dom(driver_state) &
     dd : dom(driver_storage) &
+    ii : ran(driver_route(dd)) &
+    card(what(ii)) <= driver_storage(dd) &
     order_state(ii) = MOVING &
     driver_state(dd) = BUSY &
     driver_storage(dd) > 0
   THEN
     order_state(ii) := DELIVERED ||
-    driver_storage(dd) := driver_storage(dd) - card(what(ii))
+    driver_storage(dd) := driver_storage(dd) - card(what(ii)) ||
+    ANY idx WHERE
+        idx : 0..(driver_route_len(dd) - 1) &
+        driver_route(dd)(idx) = ii
+    THEN
+        IF idx = driver_route_len(dd) - 1 THEN
+            /* Se for o último item da rota, apenas zere */
+            driver_route := driver_route <+ {dd |-> 
+                (driver_route(dd) <+ {idx |-> 0})
+            }
+        ELSE
+            /* Troca com o último item ativo para manter o array sem buracos */
+            driver_route := driver_route <+ {dd |-> 
+                (driver_route(dd) <+ {
+                    idx |-> driver_route(dd)(driver_route_len(dd) - 1), 
+                    (driver_route_len(dd) - 1) |-> 0
+                })
+            }
+        END ||
+        driver_route_len(dd) := driver_route_len(dd) - 1
+    END
   END;
-
+  
 driver_return(dd) =
   PRE
     dd : dom(driver_state) &
@@ -211,7 +232,7 @@ driver_return(dd) =
     driver_storage(dd) = 0
   THEN
     driver_state(dd) := AVAILABLE ||
-    driver_route(dd) := (0..MAX_ROUTE) * {0} ||
+    driver_route := driver_route <+ {dd |-> ((0..(MAX_ROUTE - 1)) * {0})} ||
     driver_route_len(dd) := 0
   END
 
