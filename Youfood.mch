@@ -86,7 +86,23 @@ INVARIANT
       driver_route(dd)(ii2) : dom(order_state) &
       order_state(driver_route(dd)(ii1)) /= DELIVERED &
       order_state(driver_route(dd)(ii2)) /= DELIVERED => 
-        order_state(driver_route(dd)(ii1)) = order_state(driver_route(dd)(ii2)))
+        order_state(driver_route(dd)(ii1)) = order_state(driver_route(dd)(ii2))) &
+
+    /* Os pedidos na fila devem estar apenas PREPARING ou READY (nunca MOVING ou DELIVERED) */
+    !(ii).(ii : ran(queue) - {0} => order_state(ii) : {PREPARING, READY}) &
+
+    /* Se um motorista estiver AVAILABLE, todos os pedidos na rota dele ainda devem estar READY */
+    !(dd).(dd : 0..DRIVERS & driver_state(dd) = AVAILABLE =>
+      !(ii).(ii : ran(driver_route(dd)) - {0} => order_state(ii) = READY)) &
+
+    /* Se um motorista estiver BUSY, pedidos ainda não entregues em sua rota devem estar MOVING */
+    !(dd).(dd : 0..DRIVERS & driver_state(dd) = BUSY =>
+      !(ii).(ii : ran(driver_route(dd)) - {0} & order_state(ii) /= DELIVERED => 
+        order_state(ii) = MOVING)) &
+
+    /* Todo pedido atualmente marcado como MOVING deve existir na rota de um motorista BUSY */
+    !(ii).(ii : dom(order_state) & order_state(ii) = MOVING =>
+      #(dd).(dd : 0..DRIVERS & driver_state(dd) = BUSY & ii : ran(driver_route(dd))))
 
 INITIALISATION
     queue := (0..QUEUE_SIZE) * {0} ||
