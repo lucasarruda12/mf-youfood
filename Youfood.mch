@@ -102,7 +102,34 @@ INVARIANT
 
     /* Todo pedido atualmente marcado como MOVING deve existir na rota de um motorista BUSY */
     !(ii).(ii : dom(order_state) & order_state(ii) = MOVING =>
-      #(dd).(dd : 1..DRIVERS & driver_state(dd) = BUSY & ii : ran(driver_route(dd))))
+      #(dd).(dd : 1..DRIVERS & driver_state(dd) = BUSY & ii : ran(driver_route(dd)))) &
+  
+    /* Nenhum pedido pode estar em rotas de dois motoristas diferentes ao mesmo tempo */
+    !(dd1, dd2).(dd1 : 1..DRIVERS & dd2 : 1..DRIVERS & dd1 /= dd2 =>
+      (ran(driver_route(dd1)) - {0}) /\ (ran(driver_route(dd2)) - {0}) = {}) &
+
+    /* Nenhum pedido na rota de qualquer motorista pode permanecer na fila */
+    !(dd).(dd : 1..DRIVERS =>
+      (ran(driver_route(dd)) - {0}) /\ (ran(queue) - {0}) = {}) &
+
+    /* A rota de um motorista não pode conter IDs de pedidos duplicados */
+    !(dd, ii1, ii2).(dd : 1..DRIVERS & 
+      ii1 : 0..(driver_route_len(dd) - 1) & 
+      ii2 : 0..(driver_route_len(dd) - 1) & 
+      ii1 /= ii2 => 
+        driver_route(dd)(ii1) /= driver_route(dd)(ii2)) &
+    
+    /* Pedidos entregues que permanecem em uma rota não contam para o armazenamento atual das sacolas */
+    !(dd).(dd : 1..DRIVERS & driver_state(dd) = BUSY =>
+      driver_storage(dd) <= MAX_STORAGE) &
+  
+    /* Entradas da fila são únicas, garantindo remoção completa no momento da atribuição */
+    !(i1, i2).(i1 : 0..(QUEUE_SIZE - 1) & i2 : 0..(QUEUE_SIZE - 1) & i1 /= i2 & queue(i1) /= 0 => 
+      queue(i1) /= queue(i2)) &
+
+    /* O gerador de IDs é crescente e nunca sobrescreve pedidos ativos existentes */
+    !(ii).(ii : dom(order_state) => ii < current_ident)
+
 
 INITIALISATION
     queue := (0..(QUEUE_SIZE - 1)) * {0} ||
