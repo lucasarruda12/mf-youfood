@@ -1,0 +1,33 @@
+﻿THEORY User_Pass IS
+Operation(AssertionLemmas) & ff(0) & pr;
+Operation(AssertionLemmas) & ff(1) & pr;
+Operation(Initialisation) & ff(0) & pr;
+Operation(Initialisation) & ff(0) & pp;
+Operation(Initialisation) & ff(0) & pr & pp;
+Operation(Initialisation) & ff(1) & pr;
+Operation(Operation_make_request) & ff(0) & pr;
+Operation(Operation_make_request) & ff(2) & pr;
+Operation(Operation_make_request) & ff(1) & pr;
+Operation(Operation_ready_order) & ff(0) & pr;
+Operation(Operation_ready_order) & ff(1) & pr;
+Operation(Operation_assign_order) & ff(0) & pr;
+Operation(Operation_assign_order) & ff(2) & pr;
+Operation(Operation_assign_order) & ff(1) & pr;
+Operation(Operation_send_driver) & ff(0) & pr;
+Operation(Operation_deliver_order) & ff(0) & pr;
+Operation(Operation_driver_return) & ff(0) & pr;
+Operation(WellDefinednessProperties) & ff(0) & pr;
+Operation(WellDefinednessInvariant) & ff(0) & pr;
+Operation(WellDefinednessInvariant) & ff(1) & pr;
+Operation(WellDefinednessAssertions) & ff(0) & pr;
+Operation(WellDefinednessPrecondition_make_request) & ff(0) & pr;
+Operation(WellDefinedness_make_request) & ff(0) & pr;
+Operation(WellDefinednessPrecondition_ready_order) & ff(0) & pr;
+Operation(WellDefinednessPrecondition_assign_order) & ff(0) & pr;
+Operation(WellDefinedness_assign_order) & ff(0) & pr;
+Operation(WellDefinednessPrecondition_send_driver) & ff(0) & pr;
+Operation(WellDefinedness_send_driver) & ff(0) & pr;
+Operation(WellDefinednessPrecondition_deliver_order) & ff(0) & pr;
+Operation(WellDefinedness_deliver_order) & ff(0) & pr;
+Operation(WellDefinednessPrecondition_driver_return) & ff(0) & pr
+END 
