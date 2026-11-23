@@ -1,4 +1,4 @@
-MACHINE YOUFOOD
+MACHINE Youfood
 
 SETS
     PRODUCT; USER;
@@ -46,9 +46,15 @@ INVARIANT
     // Pensar em mais invariantes!!!
 
 INITIALISATION
+<<<<<<< HEAD
     queue, what, where, who, order_state, current_ident 
 	:= (0..29) * {0}, {}, {}, {}, {}, 1;
     begin, end, sze := 0,0,0
+=======
+    queue, what, where, who, state, current_ident 
+        := (0..29) * {0}, {}, {}, {}, {}, 1 ||
+    begin, end, sze := 0, 0, 0
+>>>>>>> 0936b63adfbcdd21c9993a133ca920732a688766
 
 OPERATIONS
 
