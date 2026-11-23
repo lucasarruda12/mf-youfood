@@ -9,12 +9,20 @@ REFINES Queue
 SEES
     Queue_ctx
 
+CONCRETE_CONSTANTS
+    max_array_size
+    
+PROPERTIES
+    max_array_size : NAT &
+    max_array_size = QUEUE_SIZE - 1
+    
+VALUES
+    max_array_size = QUEUE_SIZE - 1
+
 CONCRETE_VARIABLES         
-    array, sze, pos, max_array_size
+    array, sze, pos
 
 INVARIANT
-    max_array_size : NAT &
-    max_array_size = QUEUE_SIZE - 1 &
     array : (0..max_array_size) --> PRODUCT &
     sze : 0..QUEUE_SIZE &
     pos : 0..max_array_size &
@@ -26,7 +34,6 @@ INVARIANT
                      sze)
 
 INITIALISATION    
-    max_array_size := QUEUE_SIZE - 1;
     array := (0..max_array_size)*{pp0};
     sze := 0;
     pos := 0
@@ -41,7 +48,7 @@ END;
 
 ee <-- pop = BEGIN
     ee := array(pos);
-    pos := pos + 1;
+    pos := pos + 1 mod QUEUE_SIZE;
     sze := sze + 1
 END
 

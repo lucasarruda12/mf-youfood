@@ -1,9 +1,9 @@
 THEORY BalanceX IS
-Queue_i,38,0,0,16,0,0,0;
-Initialisation,8,0,0,2,0,0,0;
-Operation_pop,7,0,0,1,0,0,0;
+Queue_i,38,0,0,19,3,0,0;
+Initialisation,8,0,0,5,1,0,0;
+Operation_pop,7,0,0,1,1,0,0;
 Operation_push,10,0,0,5,0,0,0;
-WellDefinednessInvariant,9,0,0,4,0,0,0;
+WellDefinednessInvariant,9,0,0,4,1,0,0;
 WellDefinedness_pop,2,0,0,2,0,0,0;
 WellDefinedness_push,2,0,0,2,0,0,0
 END
@@ -13,7 +13,7 @@ Proved(0);
 Proved(0);
 Proved(0);
 Proved(0);
-Unproved;
+Proved(1);
 Proved(0);
 Proved(0);
 Proved(0);
@@ -26,27 +26,27 @@ Unproved;
 Unproved;
 Proved(0);
 Unproved;
+Proved(1);
 Unproved;
 Unproved;
 Unproved;
-Unproved;
-Proved(0);
-Unproved;
-Proved(0);
 Proved(0);
 Unproved;
 Proved(0);
 Proved(0);
 Unproved;
-Unproved;
-Unproved;
-Unproved;
+Proved(0);
+Proved(0);
 Unproved;
 Unproved;
 Proved(0);
 Proved(0);
 Unproved;
-Unproved
+Unproved;
+Proved(0);
+Proved(0);
+Proved(1);
+Proved(0)
 END
 &
 THEORY MethodList IS
@@ -80,14 +80,14 @@ pr;
 pr;
 ?;
 ?;
-?;
-?;
+pr;
+pr;
 ?;
 ?;
 pr;
 pr;
-?;
-?
+pr;
+pr
 END
 &
 THEORY PassList IS
@@ -95,48 +95,48 @@ Force(0),?;
 Force(0),?;
 Force(0),?;
 Force(0),?;
+Force(1),(?; 0);
 Force(0),?;
 Force(0),?;
 Force(0),?;
+Force(0),(?; 0; 1; 2; 3);
+Force(0),(?; 0; 1; 2; 3);
+Force(0),?;
+Force(0),(?; 0; 1; 2; 3);
+Force(0),(?; 0; 1; 2; 3);
+Force(0),(?; 0; 1; 2; 3);
+Force(0),(?; 0; 1; 2; 3);
+Force(0),?;
+Force(0),(?; 0; 1; 2; 3);
+Force(1),(?; 0);
+Force(0),(?; 0; 1; 2; 3);
+Force(0),(?; 0; 1; 2; 3);
+Force(0),(?; 0; 1; 2; 3);
+Force(0),?;
+Force(0),(?; 0; 1; 2; 3);
 Force(0),?;
 Force(0),?;
+Force(0),(?; 0; 1; 2; 3);
 Force(0),?;
 Force(0),?;
+Force(0),(?; 0; 1; 2; 3);
+Force(0),(?; 0; 1; 2; 3);
 Force(0),?;
 Force(0),?;
+Force(0),(?; 0; 1; 2; 3);
+Force(0),(?; 0; 1; 2; 3);
 Force(0),?;
 Force(0),?;
-Force(0),?;
-Force(0),?;
-Force(0),?;
-Force(0),?;
-Force(0),?;
-Force(0),?;
-Force(0),?;
-Force(0),?;
-Force(0),?;
-Force(0),?;
-Force(0),?;
-Force(0),?;
-Force(0),?;
-Force(0),?;
-Force(0),?;
-Force(0),?;
-Force(0),?;
-Force(0),?;
-Force(0),?;
-Force(0),?;
-Force(0),?;
-Force(0),?;
+Force(1),(?; 0);
 Force(0),?
 END
 &
 THEORY Status IS
-Queue_i,38,0,16,0,0,0;
-Initialisation,8,0,2,0,0,0;
-Operation_pop,7,0,1,0,0,0;
+Queue_i,38,0,22,0,0,0;
+Initialisation,8,0,6,0,0,0;
+Operation_pop,7,0,2,0,0,0;
 Operation_push,10,0,5,0,0,0;
-WellDefinednessInvariant,9,0,4,0,0,0;
+WellDefinednessInvariant,9,0,5,0,0,0;
 WellDefinedness_pop,2,0,2,0,0,0;
 WellDefinedness_push,2,0,2,0,0,0
 END

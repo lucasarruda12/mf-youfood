@@ -1,15 +1,14 @@
 /* Queue_ctx_i
- * Author: lucas.arruda.125
- * Creation date: 23/11/2026
+ * Author: 
+ * Creation date: 11/23/26
  */
 
 IMPLEMENTATION Queue_ctx_i
 REFINES Queue_ctx
-    
+
 VALUES
     PRODUCT = 0..10;
     QUEUE_SIZE = 30;
-    pp0 = 3
+    pp0 = 3    
 
-
- END
+END

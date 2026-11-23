@@ -44,8 +44,8 @@ THEORY ListVisibleVariablesX IS
   Abstract_List_VisibleVariables(Implementation(Queue_i))==(?);
   External_List_VisibleVariables(Implementation(Queue_i))==(?);
   Expanded_List_VisibleVariables(Implementation(Queue_i))==(?);
-  List_VisibleVariables(Implementation(Queue_i))==(max_array_size,pos,sze,array);
-  Internal_List_VisibleVariables(Implementation(Queue_i))==(max_array_size,pos,sze,array)
+  List_VisibleVariables(Implementation(Queue_i))==(pos,sze,array);
+  Internal_List_VisibleVariables(Implementation(Queue_i))==(pos,sze,array)
 END
 &
 THEORY ListInvariantX IS
@@ -53,7 +53,7 @@ THEORY ListInvariantX IS
   Expanded_List_Invariant(Implementation(Queue_i))==(btrue);
   Abstract_List_Invariant(Implementation(Queue_i))==(contents: seq(PRODUCT) & size(contents)<=QUEUE_SIZE);
   Context_List_Invariant(Implementation(Queue_i))==(btrue);
-  List_Invariant(Implementation(Queue_i))==(max_array_size: NAT & max_array_size = QUEUE_SIZE-1 & array: 0..max_array_size --> PRODUCT & sze: 0..QUEUE_SIZE & pos: 0..max_array_size & #aseq.(aseq = %ii.(ii: 1..card(array) | array(ii-1)) & contents = aseq\|/pos^(aseq/|\pos)/|\sze))
+  List_Invariant(Implementation(Queue_i))==(array: 0..max_array_size --> PRODUCT & sze: 0..QUEUE_SIZE & pos: 0..max_array_size & #aseq.(aseq = %ii.(ii: 1..card(array) | array(ii-1)) & contents = aseq\|/pos^(aseq/|\pos)/|\sze))
 END
 &
 THEORY ListAssertionsX IS
@@ -72,9 +72,9 @@ THEORY ListExclusivityX IS
 END
 &
 THEORY ListInitialisationX IS
-  Expanded_List_Initialisation(Implementation(Queue_i))==((QUEUE_SIZE-1: INT & QUEUE_SIZE: INT & 1: INT | max_array_size:=QUEUE_SIZE-1);array:=(0..max_array_size)*{pp0};(0: INT | sze:=0);(0: INT | pos:=0));
+  Expanded_List_Initialisation(Implementation(Queue_i))==(array:=(0..max_array_size)*{pp0};(0: INT | sze:=0);(0: INT | pos:=0));
   Context_List_Initialisation(Implementation(Queue_i))==(skip);
-  List_Initialisation(Implementation(Queue_i))==(max_array_size:=QUEUE_SIZE-1;array:=(0..max_array_size)*{pp0};sze:=0;pos:=0)
+  List_Initialisation(Implementation(Queue_i))==(array:=(0..max_array_size)*{pp0};sze:=0;pos:=0)
 END
 &
 THEORY ListParametersX IS
@@ -118,16 +118,16 @@ THEORY ListPreconditionX IS
 END
 &
 THEORY ListSubstitutionX IS
-  Expanded_List_Substitution(Implementation(Queue_i),pop)==(size(contents)>0 | (pos: dom(array) | ee:=array(pos));(pos+1: INT & pos: INT & 1: INT | pos:=pos+1);(sze+1: INT & sze: INT & 1: INT | sze:=sze+1));
+  Expanded_List_Substitution(Implementation(Queue_i),pop)==(size(contents)>0 | (pos: dom(array) | ee:=array(pos));(pos+1 mod QUEUE_SIZE: INT & 1 mod QUEUE_SIZE: NAT & 1: NAT & QUEUE_SIZE: NAT1 & pos: INT & 1 mod QUEUE_SIZE: INT | pos:=pos+1 mod QUEUE_SIZE);(sze+1: INT & sze: INT & 1: INT | sze:=sze+1));
   Expanded_List_Substitution(Implementation(Queue_i),push)==(ee: PRODUCT & size(contents)<QUEUE_SIZE | (sze+pos: INT & sze: INT & pos: INT & (sze+pos) mod QUEUE_SIZE: NAT & sze+pos: NAT & QUEUE_SIZE: NAT1 & (sze+pos) mod QUEUE_SIZE: dom(array) | array:=array<+{(sze+pos) mod QUEUE_SIZE|->ee});(sze+1: INT & sze: INT & 1: INT | sze:=sze+1));
   List_Substitution(Implementation(Queue_i),push)==(array((sze+pos) mod QUEUE_SIZE):=ee;sze:=sze+1);
-  List_Substitution(Implementation(Queue_i),pop)==(ee:=array(pos);pos:=pos+1;sze:=sze+1)
+  List_Substitution(Implementation(Queue_i),pop)==(ee:=array(pos);pos:=pos+1 mod QUEUE_SIZE;sze:=sze+1)
 END
 &
 THEORY ListConstantsX IS
-  List_Valuable_Constants(Implementation(Queue_i))==(?);
+  List_Valuable_Constants(Implementation(Queue_i))==(max_array_size);
   Inherited_List_Constants(Implementation(Queue_i))==(?);
-  List_Constants(Implementation(Queue_i))==(?)
+  List_Constants(Implementation(Queue_i))==(max_array_size)
 END
 &
 THEORY ListSetsX IS
@@ -155,12 +155,13 @@ THEORY ListPropertiesX IS
   Abstract_List_Properties(Implementation(Queue_i))==(btrue);
   Context_List_Properties(Implementation(Queue_i))==(QUEUE_SIZE: NAT & pp0: PRODUCT & QUEUE_SIZE>=1 & PRODUCT: FIN(INTEGER) & not(PRODUCT = {}));
   Inherited_List_Properties(Implementation(Queue_i))==(btrue);
-  List_Properties(Implementation(Queue_i))==(btrue)
+  List_Properties(Implementation(Queue_i))==(max_array_size: NAT & max_array_size = QUEUE_SIZE-1)
 END
 &
 THEORY ListValuesX IS
-  Values_Subs(Implementation(Queue_i))==(aa: aa);
-  List_Values(Implementation(Queue_i))==(?)
+  Precond_Valued_Objects(Implementation(Queue_i))==(QUEUE_SIZE-1: INT & QUEUE_SIZE: INT & 1: INT);
+  Values_Subs(Implementation(Queue_i))==(max_array_size: QUEUE_SIZE-1);
+  List_Values(Implementation(Queue_i))==(max_array_size = QUEUE_SIZE-1)
 END
 &
 THEORY ListSeenInfoX IS
@@ -177,7 +178,8 @@ END
 THEORY ListIncludedOperationsX END
 &
 THEORY InheritedEnvX IS
-  VisibleVariables(Implementation(Queue_i))==(Type(array) == Mvv(SetOf(btype(INTEGER,0,max_array_size)*atype(PRODUCT,"[PRODUCT","]PRODUCT")));Type(sze) == Mvv(btype(INTEGER,?,?));Type(pos) == Mvv(btype(INTEGER,?,?));Type(max_array_size) == Mvv(btype(INTEGER,?,?)));
+  Constants(Implementation(Queue_i))==(Type(max_array_size) == Cst(btype(INTEGER,?,?)));
+  VisibleVariables(Implementation(Queue_i))==(Type(array) == Mvv(SetOf(btype(INTEGER,0,max_array_size)*atype(PRODUCT,"[PRODUCT","]PRODUCT")));Type(sze) == Mvv(btype(INTEGER,?,?));Type(pos) == Mvv(btype(INTEGER,?,?)));
   Operations(Implementation(Queue_i))==(Type(pop) == Cst(atype(PRODUCT,?,?),No_type);Type(push) == Cst(No_type,atype(PRODUCT,?,?)))
 END
 &
@@ -188,10 +190,10 @@ THEORY ListVisibleStaticX IS
 END
 &
 THEORY ListOfIdsX IS
-  List_Of_Ids(Implementation(Queue_i)) == (? | ? | ? | ? | push,pop | ? | seen(Machine(Queue_ctx)) | ? | Queue_i);
+  List_Of_Ids(Implementation(Queue_i)) == (max_array_size | ? | ? | ? | push,pop | ? | seen(Machine(Queue_ctx)) | ? | Queue_i);
   List_Of_HiddenCst_Ids(Implementation(Queue_i)) == (? | ?);
-  List_Of_VisibleCst_Ids(Implementation(Queue_i)) == (?);
-  List_Of_VisibleVar_Ids(Implementation(Queue_i)) == (max_array_size,pos,sze,array | ?);
+  List_Of_VisibleCst_Ids(Implementation(Queue_i)) == (max_array_size);
+  List_Of_VisibleVar_Ids(Implementation(Queue_i)) == (pos,sze,array | ?);
   List_Of_Ids_SeenBNU(Implementation(Queue_i)) == (?: ?);
   List_Of_Ids(Machine(Queue_ctx)) == (QUEUE_SIZE,pp0,PRODUCT | ? | ? | ? | ? | ? | ? | ? | Queue_ctx);
   List_Of_HiddenCst_Ids(Machine(Queue_ctx)) == (? | ?);
@@ -200,8 +202,12 @@ THEORY ListOfIdsX IS
   List_Of_Ids_SeenBNU(Machine(Queue_ctx)) == (?: ?)
 END
 &
+THEORY ConstantsEnvX IS
+  Constants(Implementation(Queue_i)) == (Type(max_array_size) == Cst(btype(INTEGER,?,?)))
+END
+&
 THEORY VisibleVariablesEnvX IS
-  VisibleVariables(Implementation(Queue_i)) == (Type(max_array_size) == Mvv(btype(INTEGER,?,?));Type(pos) == Mvv(btype(INTEGER,?,?));Type(sze) == Mvv(btype(INTEGER,?,?));Type(array) == Mvv(SetOf(btype(INTEGER,0,max_array_size)*atype(PRODUCT,"[PRODUCT","]PRODUCT"))))
+  VisibleVariables(Implementation(Queue_i)) == (Type(pos) == Mvv(btype(INTEGER,?,?));Type(sze) == Mvv(btype(INTEGER,?,?));Type(array) == Mvv(SetOf(btype(INTEGER,0,max_array_size)*atype(PRODUCT,"[PRODUCT","]PRODUCT"))))
 END
 &
 THEORY TCIntRdX IS
@@ -233,7 +239,7 @@ THEORY ListLocalPreconditionX END
 THEORY ListLocalSubstitutionX END
 &
 THEORY TypingPredicateX IS
-  TypingPredicate(Implementation(Queue_i))==(array: POW(INTEGER*PRODUCT) & sze: INTEGER & pos: INTEGER & max_array_size: INTEGER)
+  TypingPredicate(Implementation(Queue_i))==(array: POW(INTEGER*PRODUCT) & sze: INTEGER & pos: INTEGER)
 END
 &
 THEORY ImportedVariablesListX END

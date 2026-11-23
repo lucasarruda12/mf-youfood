@@ -1,63 +1,67 @@
 THEORY ProofList IS
-_f(1) & _f(2) & _f(13) & _f(14) & _f(26) & WellDefinedness_pop.2,(_f(47) => _f(31));
-_f(1) & _f(2) & _f(13) & _f(14) & _f(26) & WellDefinedness_pop.1,(_f(47) => _f(48));
-_f(1) & _f(2) & _f(13) & _f(14) & _f(15) & _f(16) & WellDefinedness_push.2,(_f(47) => _f(21));
-_f(1) & _f(2) & _f(13) & _f(14) & _f(15) & _f(16) & WellDefinedness_push.1,(_f(47) => _f(20));
-_f(1) & _f(2) & _f(13) & WellDefinednessInvariant.9,(_f(34) & _f(35) & _f(36) & _f(37) & _f(38) & _f(39) & _f(40) => _f(46));
-_f(1) & _f(2) & _f(13) & WellDefinednessInvariant.8,(_f(34) & _f(35) & _f(36) & _f(37) & _f(38) & _f(39) & _f(40) => _f(45));
-_f(1) & _f(2) & _f(13) & WellDefinednessInvariant.7,(_f(34) & _f(35) & _f(36) & _f(37) & _f(38) & _f(39) & _f(40) => _f(44));
-_f(1) & _f(2) & _f(13) & WellDefinednessInvariant.6,(_f(34) & _f(35) & _f(36) & _f(37) & _f(38) & _f(39) & _f(40) => _f(43));
-_f(1) & _f(2) & _f(13) & WellDefinednessInvariant.5,(_f(34) & _f(35) & _f(36) & _f(37) & _f(38) & _f(39) & _f(40) => _f(42));
-_f(1) & _f(2) & _f(13) & WellDefinednessInvariant.4,(_f(34) & _f(35) & _f(36) & _f(37) & _f(38) & _f(39) & _f(40) => _f(41));
-_f(1) & _f(2) & _f(13) & WellDefinednessInvariant.3,(_f(34) & _f(35) & _f(36) & _f(37) & _f(38) & _f(27) & _f(40) => _f(31));
-_f(1) & _f(2) & _f(13) & WellDefinednessInvariant.2,(_f(34) & _f(35) & _f(36) & _f(37) & _f(38) & _f(27) & _f(40) => _f(30));
-_f(1) & _f(2) & _f(13) & WellDefinednessInvariant.1,(_f(34) & _f(35) & _f(36) & _f(37) & _f(38) & _f(40) => _f(29));
-_f(1) & _f(2) & _f(13) & _f(14) & Operation_pop.7,(_f(26) & _f(4) => _f(33));
-_f(1) & _f(2) & _f(13) & _f(14) & Operation_pop.6,(_f(26) & _f(4) => _f(32));
-_f(1) & _f(2) & _f(13) & _f(14) & Operation_pop.5,(_f(26) & _f(27) & _f(4) => _f(31));
-_f(1) & _f(2) & _f(13) & _f(14) & Operation_pop.4,(_f(26) & _f(27) & _f(4) => _f(30));
-_f(1) & _f(2) & _f(13) & _f(14) & Operation_pop.3,(_f(26) & _f(4) => _f(29));
-_f(1) & _f(2) & _f(13) & _f(14) & Operation_pop.2,(_f(26) & _f(4) => _f(28));
-_f(1) & _f(2) & _f(13) & _f(14) & Operation_pop.1,(_f(26) & _f(4) => _f(19));
-_f(1) & _f(2) & _f(13) & _f(14) & Operation_push.10,(_f(15) & _f(16) & _f(4) => _f(25));
-_f(1) & _f(2) & _f(13) & _f(14) & Operation_push.9,(_f(15) & _f(16) & _f(17) & _f(4) => _f(24));
-_f(1) & _f(2) & _f(13) & _f(14) & Operation_push.8,(_f(15) & _f(16) & _f(17) & _f(4) => _f(23));
-_f(1) & _f(2) & _f(13) & _f(14) & Operation_push.7,(_f(15) & _f(16) & _f(17) & _f(4) => _f(21));
-_f(1) & _f(2) & _f(13) & _f(14) & Operation_push.6,(_f(15) & _f(16) & _f(17) & _f(4) => _f(20));
-_f(1) & _f(2) & _f(13) & _f(14) & Operation_push.5,(_f(15) & _f(16) & _f(4) => _f(22));
-_f(1) & _f(2) & _f(13) & _f(14) & Operation_push.4,(_f(15) & _f(16) & _f(4) => _f(21));
-_f(1) & _f(2) & _f(13) & _f(14) & Operation_push.3,(_f(15) & _f(16) & _f(4) => _f(20));
-_f(1) & _f(2) & _f(13) & _f(14) & Operation_push.2,(_f(15) & _f(16) & _f(4) => _f(19));
-_f(1) & _f(2) & _f(13) & _f(14) & Operation_push.1,(_f(15) & _f(16) & _f(4) => _f(18));
-_f(1) & _f(2) & Initialisation.8,(_f(4) => _f(12));
-_f(1) & _f(2) & Initialisation.7,(_f(3) & _f(4) => _f(11));
-_f(1) & _f(2) & Initialisation.6,(_f(3) & _f(4) => _f(10));
-_f(1) & _f(2) & Initialisation.5,(_f(4) => _f(9));
-_f(1) & _f(2) & Initialisation.4,(_f(4) => _f(8));
-_f(1) & _f(2) & Initialisation.3,(_f(4) => _f(7));
-_f(1) & _f(2) & Initialisation.2,(_f(4) => _f(6));
-_f(1) & _f(2) & Initialisation.1,(_f(4) => _f(5))
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & _f(28) & WellDefinedness_pop.4,(_f(47) => _f(23));
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & _f(28) & WellDefinedness_pop.3,(_f(47) => _f(49));
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & _f(28) & WellDefinedness_pop.2,(_f(47) => _f(33));
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & _f(28) & WellDefinedness_pop.1,(_f(47) => _f(48));
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & _f(17) & _f(18) & WellDefinedness_push.2,(_f(47) => _f(23));
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & _f(17) & _f(18) & WellDefinedness_push.1,(_f(47) => _f(22));
+_f(1) & _f(2) & _f(5) & _f(15) & WellDefinednessInvariant.9,(_f(36) & _f(37) & _f(38) & _f(39) & _f(40) => _f(46));
+_f(1) & _f(2) & _f(5) & _f(15) & WellDefinednessInvariant.8,(_f(36) & _f(37) & _f(38) & _f(39) & _f(40) => _f(45));
+_f(1) & _f(2) & _f(5) & _f(15) & WellDefinednessInvariant.7,(_f(36) & _f(37) & _f(38) & _f(39) & _f(40) => _f(44));
+_f(1) & _f(2) & _f(5) & _f(15) & WellDefinednessInvariant.6,(_f(36) & _f(37) & _f(38) & _f(39) & _f(40) => _f(43));
+_f(1) & _f(2) & _f(5) & _f(15) & WellDefinednessInvariant.5,(_f(36) & _f(37) & _f(38) & _f(39) & _f(40) => _f(42));
+_f(1) & _f(2) & _f(5) & _f(15) & WellDefinednessInvariant.4,(_f(36) & _f(37) & _f(38) & _f(39) & _f(40) => _f(41));
+_f(1) & _f(2) & _f(5) & _f(15) & WellDefinednessInvariant.3,(_f(36) & _f(37) & _f(38) & _f(29) & _f(40) => _f(33));
+_f(1) & _f(2) & _f(5) & _f(15) & WellDefinednessInvariant.2,(_f(36) & _f(37) & _f(38) & _f(29) & _f(40) => _f(32));
+_f(1) & _f(2) & _f(5) & _f(15) & WellDefinednessInvariant.1,(_f(36) & _f(37) & _f(38) & _f(40) => _f(31));
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & Operation_pop.7,(_f(28) & _f(7) => _f(35));
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & Operation_pop.6,(_f(28) & _f(7) => _f(34));
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & Operation_pop.5,(_f(28) & _f(29) & _f(7) => _f(33));
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & Operation_pop.4,(_f(28) & _f(29) & _f(7) => _f(32));
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & Operation_pop.3,(_f(28) & _f(7) => _f(31));
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & Operation_pop.2,(_f(28) & _f(7) => _f(30));
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & Operation_pop.1,(_f(28) & _f(7) => _f(21));
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & Operation_push.10,(_f(17) & _f(18) & _f(7) => _f(27));
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & Operation_push.9,(_f(17) & _f(18) & _f(19) & _f(7) => _f(26));
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & Operation_push.8,(_f(17) & _f(18) & _f(19) & _f(7) => _f(25));
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & Operation_push.7,(_f(17) & _f(18) & _f(19) & _f(7) => _f(23));
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & Operation_push.6,(_f(17) & _f(18) & _f(19) & _f(7) => _f(22));
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & Operation_push.5,(_f(17) & _f(18) & _f(7) => _f(24));
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & Operation_push.4,(_f(17) & _f(18) & _f(7) => _f(23));
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & Operation_push.3,(_f(17) & _f(18) & _f(7) => _f(22));
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & Operation_push.2,(_f(17) & _f(18) & _f(7) => _f(21));
+_f(1) & _f(2) & _f(5) & _f(15) & _f(16) & Operation_push.1,(_f(17) & _f(18) & _f(7) => _f(20));
+_f(1) & _f(2) & _f(5) & Initialisation.7,(_f(7) => _f(14));
+_f(1) & _f(2) & _f(5) & Initialisation.6,(_f(6) & _f(7) => _f(13));
+_f(1) & _f(2) & _f(5) & Initialisation.5,(_f(6) & _f(7) => _f(12));
+_f(1) & _f(2) & _f(5) & Initialisation.4,(_f(7) => _f(11));
+_f(1) & _f(2) & _f(5) & Initialisation.3,(_f(7) => _f(10));
+_f(1) & _f(2) & _f(5) & Initialisation.2,(_f(7) => _f(9));
+_f(1) & _f(2) & _f(5) & Initialisation.1,(_f(7) => _f(8));
+_f(1) & _f(2) & ValuesLemmas.1,(_f(3) => _f(4))
 END
 &
 THEORY Formulas IS
 ((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
 PRODUCT: FIN(INTEGER) & not(PRODUCT = {}) & ((QUEUE_SIZE) : (NAT)) & ((pp0) : (PRODUCT)) & (1 <= QUEUE_SIZE);
-((ii) : (((1) .. (card((((0) .. ((QUEUE_SIZE - 1))) * ({pp0})))))));
-"Refinement is correct";
+"Valuation is correct";
 (((QUEUE_SIZE - 1)) : (NAT));
-(((((0) .. ((QUEUE_SIZE - 1))) * ({pp0}))) : (((((0) .. ((QUEUE_SIZE - 1)))) --> (PRODUCT))));
+((max_array_size) : (NAT)) & ((max_array_size) = ((QUEUE_SIZE - 1))) & ((max_array_size) = ((QUEUE_SIZE - 1)));
+((ii) : (((1) .. (card((((0) .. (max_array_size)) * ({pp0})))))));
+"Refinement is correct";
+(((((0) .. (max_array_size)) * ({pp0}))) : (((((0) .. (max_array_size))) --> (PRODUCT))));
 ((0) : (((0) .. (QUEUE_SIZE))));
-((0) : (((0) .. ((QUEUE_SIZE - 1)))));
-(((((0) .. ((QUEUE_SIZE - 1))) * ({pp0}))) : (FIN((((0) .. ((QUEUE_SIZE - 1))) * ({pp0})))));
-(((ii - 1)) : (dom((((0) .. ((QUEUE_SIZE - 1))) * ({pp0})))));
-(((((0) .. ((QUEUE_SIZE - 1))) * ({pp0}))) : (((dom((((0) .. ((QUEUE_SIZE - 1))) * ({pp0})))) +-> (ran((((0) .. ((QUEUE_SIZE - 1))) * ({pp0})))))));
-(({}) = (((((((%(ii).(((ii) : (((1) .. (card((((0) .. ((QUEUE_SIZE - 1))) * ({pp0}))))))) | ((((0) .. ((QUEUE_SIZE - 1))) * ({pp0})) )((ii - 1)))) \|/ (0))) ^ (((%(ii).(((ii) : (((1) .. (card((((0) .. ((QUEUE_SIZE - 1))) * ({pp0}))))))) | ((((0) .. ((QUEUE_SIZE - 1))) * ({pp0})) )((ii - 1)))) /|\ (0))))) /|\ (0))));
+((0) : (((0) .. (max_array_size))));
+(((((0) .. (max_array_size)) * ({pp0}))) : (FIN((((0) .. (max_array_size)) * ({pp0})))));
+(((ii - 1)) : (dom((((0) .. (max_array_size)) * ({pp0})))));
+(((((0) .. (max_array_size)) * ({pp0}))) : (((dom((((0) .. (max_array_size)) * ({pp0})))) +-> (ran((((0) .. (max_array_size)) * ({pp0})))))));
+(({}) = (((((((%(ii).(((ii) : (((1) .. (card((((0) .. (max_array_size)) * ({pp0}))))))) | ((((0) .. (max_array_size)) * ({pp0})) )((ii - 1)))) \|/ (0))) ^ (((%(ii).(((ii) : (((1) .. (card((((0) .. (max_array_size)) * ({pp0}))))))) | ((((0) .. (max_array_size)) * ({pp0})) )((ii - 1)))) /|\ (0))))) /|\ (0))));
 contents : NATURAL-{0} +-> PRODUCT & ((contents) : (seq(PRODUCT))) & (size(contents) <= QUEUE_SIZE);
-((max_array_size$1) : (NAT)) & ((max_array_size$1) = ((QUEUE_SIZE - 1))) & array$1 : ((0) .. (max_array_size$1)) +-> PRODUCT & dom(array$1) = ((0) .. (max_array_size$1)) & ((array$1) : (((((0) .. (max_array_size$1))) --> (PRODUCT)))) & ((sze$1) : (((0) .. (QUEUE_SIZE)))) & ((pos$1) : (((0) .. (max_array_size$1)))) & #(aseq).(((aseq) = (%(ii).(((ii) : (((1) .. (card(array$1))))) | (array$1 )((ii - 1))))) & ((contents) = (((((((aseq) \|/ (pos$1))) ^ (((aseq) /|\ (pos$1))))) /|\ (sze$1)))));
+array$1 : ((0) .. (max_array_size)) +-> PRODUCT & dom(array$1) = ((0) .. (max_array_size)) & ((array$1) : (((((0) .. (max_array_size))) --> (PRODUCT)))) & ((sze$1) : (((0) .. (QUEUE_SIZE)))) & ((pos$1) : (((0) .. (max_array_size)))) & #(aseq).(((aseq) = (%(ii).(((ii) : (((1) .. (card(array$1))))) | (array$1 )((ii - 1))))) & ((contents) = (((((((aseq) \|/ (pos$1))) ^ (((aseq) /|\ (pos$1))))) /|\ (sze$1)))));
 ((ee) : (PRODUCT));
 (size(contents) +1 <= QUEUE_SIZE);
 ((ii) : (((1) .. (card(((array$1) <+ (({(((((sze$1 + pos$1)) mod (QUEUE_SIZE))) |-> (ee))}))))))));
-((((array$1) <+ (({(((((sze$1 + pos$1)) mod (QUEUE_SIZE))) |-> (ee))})))) : (((((0) .. (max_array_size$1))) --> (PRODUCT))));
+((((array$1) <+ (({(((((sze$1 + pos$1)) mod (QUEUE_SIZE))) |-> (ee))})))) : (((((0) .. (max_array_size))) --> (PRODUCT))));
 (((sze$1 + 1)) : (((0) .. (QUEUE_SIZE))));
 (0 <= (sze$1 + pos$1));
 (1 <= QUEUE_SIZE);
@@ -67,17 +71,15 @@ contents : NATURAL-{0} +-> PRODUCT & ((contents) : (seq(PRODUCT))) & (size(conte
 ((((contents) <- (ee))) = (((((((%(ii).(((ii) : (((1) .. (card(((array$1) <+ (({(((((sze$1 + pos$1)) mod (QUEUE_SIZE))) |-> (ee))})))))))) | (((array$1) <+ (({(((((sze$1 + pos$1)) mod (QUEUE_SIZE))) |-> (ee))}))) )((ii - 1)))) \|/ (pos$1))) ^ (((%(ii).(((ii) : (((1) .. (card(((array$1) <+ (({(((((sze$1 + pos$1)) mod (QUEUE_SIZE))) |-> (ee))})))))))) | (((array$1) <+ (({(((((sze$1 + pos$1)) mod (QUEUE_SIZE))) |-> (ee))}))) )((ii - 1)))) /|\ (pos$1))))) /|\ ((sze$1 + 1)))));
 (0 +1 <= size(contents));
 ((ii) : (((1) .. (card(array$1)))));
-(((pos$1 + 1)) : (((0) .. (max_array_size$1))));
+(((pos$1 + ((1) mod (QUEUE_SIZE)))) : (((0) .. (max_array_size))));
 ((array$1) : (FIN(array$1)));
 (((ii - 1)) : (dom(array$1)));
 ((array$1) : (((dom(array$1)) +-> (ran(array$1)))));
-((tail(contents)) = (((((((%(ii).(((ii) : (((1) .. (card(array$1))))) | (array$1 )((ii - 1)))) \|/ ((pos$1 + 1)))) ^ (((%(ii).(((ii) : (((1) .. (card(array$1))))) | (array$1 )((ii - 1)))) /|\ ((pos$1 + 1)))))) /|\ ((sze$1 + 1)))));
+((tail(contents)) = (((((((%(ii).(((ii) : (((1) .. (card(array$1))))) | (array$1 )((ii - 1)))) \|/ ((pos$1 + ((1) mod (QUEUE_SIZE)))))) ^ (((%(ii).(((ii) : (((1) .. (card(array$1))))) | (array$1 )((ii - 1)))) /|\ ((pos$1 + ((1) mod (QUEUE_SIZE)))))))) /|\ ((sze$1 + 1)))));
 (((array$1 )(pos$1)) = (first(contents)));
-((max_array_size$1) : (NAT));
-((max_array_size$1) = ((QUEUE_SIZE - 1)));
-array$1 : ((0) .. (max_array_size$1)) +-> PRODUCT & dom(array$1) = ((0) .. (max_array_size$1)) & ((array$1) : (((((0) .. (max_array_size$1))) --> (PRODUCT))));
+array$1 : ((0) .. (max_array_size)) +-> PRODUCT & dom(array$1) = ((0) .. (max_array_size)) & ((array$1) : (((((0) .. (max_array_size))) --> (PRODUCT))));
 ((sze$1) : (((0) .. (QUEUE_SIZE))));
-((pos$1) : (((0) .. (max_array_size$1))));
+((pos$1) : (((0) .. (max_array_size))));
 ((aseq) = (%(ii).(((ii) : (((1) .. (card(array$1))))) | (array$1 )((ii - 1)))));
 "Invariant is well defined";
 ((aseq) : (seq(ran(aseq))));
@@ -87,7 +89,8 @@ array$1 : ((0) .. (max_array_size$1)) +-> PRODUCT & dom(array$1) = ((0) .. (max_
 ((((((aseq) \|/ (pos$1))) ^ (((aseq) /|\ (pos$1))))) : (seq(ran(((((aseq) \|/ (pos$1))) ^ (((aseq) /|\ (pos$1))))))));
 ((sze$1) : (((0) .. (size(((((aseq) \|/ (pos$1))) ^ (((aseq) /|\ (pos$1)))))))));
 "Operation is well defined";
-((pos$1) : (dom(array$1)))
+((pos$1) : (dom(array$1)));
+(0 <= 1)
 END
 &
 THEORY EnumerateX

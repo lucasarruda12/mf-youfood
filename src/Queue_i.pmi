@@ -1,14 +1,17 @@
 THEORY BalanceX IS
-Queue_i,38,0,0,19,3,0,0;
-Initialisation,8,0,0,5,1,0,0;
+Queue_i,40,0,0,21,3,0,0;
+Initialisation,7,0,0,4,1,0,0;
 Operation_pop,7,0,0,1,1,0,0;
 Operation_push,10,0,0,5,0,0,0;
+ValuesLemmas,1,0,0,1,0,0,0;
 WellDefinednessInvariant,9,0,0,4,1,0,0;
-WellDefinedness_pop,2,0,0,2,0,0,0;
+WellDefinedness_pop,4,0,0,4,0,0,0;
 WellDefinedness_push,2,0,0,2,0,0,0
 END
 &
 THEORY ProofState IS
+Proved(0);
+Proved(0);
 Proved(0);
 Proved(0);
 Proved(0);
@@ -59,6 +62,8 @@ pr;
 pr;
 pr;
 pr;
+pr;
+pr;
 ?;
 pr;
 ?;
@@ -91,6 +96,8 @@ pr
 END
 &
 THEORY PassList IS
+Force(0),?;
+Force(0),?;
 Force(0),?;
 Force(0),?;
 Force(0),?;
@@ -132,11 +139,12 @@ Force(0),?
 END
 &
 THEORY Status IS
-Queue_i,38,0,22,0,0,0;
-Initialisation,8,0,6,0,0,0;
+Queue_i,40,0,24,0,0,0;
+Initialisation,7,0,5,0,0,0;
 Operation_pop,7,0,2,0,0,0;
 Operation_push,10,0,5,0,0,0;
+ValuesLemmas,1,0,1,0,0,0;
 WellDefinednessInvariant,9,0,5,0,0,0;
-WellDefinedness_pop,2,0,2,0,0,0;
+WellDefinedness_pop,4,0,4,0,0,0;
 WellDefinedness_push,2,0,2,0,0,0
 END
