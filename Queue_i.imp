@@ -1,0 +1,48 @@
+/* Queue_i
+ * Author: lucas.arruda.125
+ * Creation date: 23/11/2026
+ */
+
+IMPLEMENTATION Queue_i
+REFINES Queue
+
+SEES
+    Queue_ctx
+
+CONCRETE_VARIABLES         
+    array, sze, pos, max_array_size
+
+INVARIANT
+    max_array_size : NAT &
+    max_array_size = QUEUE_SIZE - 1 &
+    array : (0..max_array_size) --> PRODUCT &
+    sze : 0..QUEUE_SIZE &
+    pos : 0..max_array_size &
+    
+    #aseq . 
+        (aseq = %ii .(ii:1..card(array) | array(ii-1))  
+        & contents = ((aseq \|/ pos) ^ (aseq /|\ pos)) 
+                     /|\ 
+                     sze)
+
+INITIALISATION    
+    max_array_size := QUEUE_SIZE - 1;
+    array := (0..max_array_size)*{pp0};
+    sze := 0;
+    pos := 0
+
+
+OPERATIONS
+    
+push(ee) = BEGIN
+  array((sze + pos) mod QUEUE_SIZE) := ee;
+  sze := sze + 1
+END;
+
+ee <-- pop = BEGIN
+    ee := array(pos);
+    pos := pos + 1;
+    sze := sze + 1
+END
+
+END

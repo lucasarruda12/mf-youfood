@@ -1,0 +1,14 @@
+/* Queue_ctx_i2
+ * Author: lucas.arruda.125
+ * Creation date: 23/11/2026
+ */
+
+IMPLEMENTATION Queue_ctx_i
+REFINES Queue_ctx
+
+VALUES
+    PRODUCT = [Coca-cola, Pepsi];
+    QUEUE_SIZE = 30;
+    pp0 = Coca-cola    
+
+END
