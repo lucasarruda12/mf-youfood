@@ -1,0 +1,25 @@
+/* Context_i
+ * Author: jorgelino
+ * Creation date: 26/11/2026
+ */
+IMPLEMENTATION
+    Context_i
+
+REFINES
+    Context
+
+SEES
+    Queue_ctx
+
+VALUES
+    MAX_ORDERS = 30;
+    MAX_STORAGE = 10;
+    DRIVERS = 5;
+    ROUTE_SIZE = 10;
+    MAX_DISTANCE = 100;
+    ADDRESS = 0..50;
+    USER = 0..100;
+    default_addr = 0;
+    default_user = 0
+
+END

@@ -1,0 +1,39 @@
+THEORY ProofList IS
+_f(1) & _f(2) & _f(6) & _f(11) & WellDefinedness_pop.2,(_f(18) => _f(19));
+_f(1) & _f(2) & _f(6) & _f(11) & WellDefinedness_pop.1,(_f(18) => _f(16));
+_f(1) & _f(2) & _f(6) & WellDefinednessPrecondition_pop.1,(_f(17) => _f(16));
+_f(1) & _f(2) & _f(6) & _f(7) & _f(8) & WellDefinedness_push.1,(_f(18) => _f(16));
+_f(1) & _f(2) & _f(6) & WellDefinednessPrecondition_push.1,(_f(7) & _f(17) => _f(16));
+_f(1) & _f(2) & WellDefinednessInvariant.1,(_f(14) & _f(15) => _f(16));
+_f(1) & _f(2) & _f(6) & _f(11) & Operation_pop.2,(_f(3) => _f(13));
+_f(1) & _f(2) & _f(6) & _f(11) & Operation_pop.1,(_f(3) => _f(12));
+_f(1) & _f(2) & _f(6) & _f(7) & _f(8) & Operation_push.2,(_f(3) => _f(10));
+_f(1) & _f(2) & _f(6) & _f(7) & _f(8) & Operation_push.1,(_f(3) => _f(9));
+_f(1) & _f(2) & Initialisation.2,(_f(3) => _f(5));
+_f(1) & _f(2) & Initialisation.1,(_f(3) => _f(4))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+PRODUCT: FIN(INTEGER) & not(PRODUCT = {}) & ((QUEUE_SIZE) : (NAT)) & ((pp0) : (PRODUCT)) & (1 <= QUEUE_SIZE);
+"Invariant is preserved";
+(({}) : (seq(PRODUCT)));
+(size({}) <= QUEUE_SIZE);
+contents : NATURAL-{0} +-> PRODUCT & ((contents) : (seq(PRODUCT))) & (size(contents) <= QUEUE_SIZE);
+((ee) : (PRODUCT));
+(size(contents) +1 <= QUEUE_SIZE);
+((((contents) <- (ee))) : (seq(PRODUCT)));
+(size(((contents) <- (ee))) <= QUEUE_SIZE);
+(0 +1 <= size(contents));
+((tail(contents)) : (seq(PRODUCT)));
+(size(tail(contents)) <= QUEUE_SIZE);
+contents : NATURAL-{0} +-> PRODUCT & ((contents) : (seq(PRODUCT)));
+"Invariant is well defined";
+((contents) : (seq(ran(contents))));
+"Operation precondition is well defined";
+"Operation is well defined";
+not(((contents) = ({})))
+END
+&
+THEORY EnumerateX
+END

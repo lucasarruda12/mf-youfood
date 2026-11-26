@@ -21,16 +21,16 @@
             <Id value="PRODUCT" typref="0"/>
         </Set>
         <Exp_Comparison op=":">
-            <Id value="QUEUE_SIZE" typref="1" tag="C:/Users/lucas.arruda.125/Desktop/mf-youfood/src\/Queue_ctx.bxml:1:3:1:1:1"/>
-            <Id value="NAT" typref="0" tag="C:/Users/lucas.arruda.125/Desktop/mf-youfood/src\/Queue_ctx.bxml:1:3:1:1:2"/>
+            <Id value="QUEUE_SIZE" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src//Queue_ctx.bxml:1:3:1:1:1"/>
+            <Id value="NAT" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src//Queue_ctx.bxml:1:3:1:1:2"/>
         </Exp_Comparison>
         <Exp_Comparison op=":">
-            <Id value="pp0" typref="1" tag="C:/Users/lucas.arruda.125/Desktop/mf-youfood/src\/Queue_ctx.bxml:1:3:1:2:1"/>
-            <Id value="PRODUCT" typref="0" tag="C:/Users/lucas.arruda.125/Desktop/mf-youfood/src\/Queue_ctx.bxml:1:3:1:2:2"/>
+            <Id value="pp0" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src//Queue_ctx.bxml:1:3:1:2:1"/>
+            <Id value="PRODUCT" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src//Queue_ctx.bxml:1:3:1:2:2"/>
         </Exp_Comparison>
         <Exp_Comparison op="&gt;=i">
-            <Id value="QUEUE_SIZE" typref="1" tag="C:/Users/lucas.arruda.125/Desktop/mf-youfood/src\/Queue_ctx.bxml:1:3:1:3:1"/>
-            <Integer_Literal value="1" typref="1" tag="C:/Users/lucas.arruda.125/Desktop/mf-youfood/src\/Queue_ctx.bxml:1:3:1:3:2"/>
+            <Id value="QUEUE_SIZE" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src//Queue_ctx.bxml:1:3:1:3:1"/>
+            <Integer_Literal value="1" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src//Queue_ctx.bxml:1:3:1:3:2"/>
         </Exp_Comparison>
     </Define>
     <Define name="seext" hash="0"/>
@@ -39,16 +39,16 @@
     <Define name="inext" hash="0"/>
     <Define name="inv" hash="13382328934193959835">
         <Exp_Comparison op=":">
-            <Id value="contents" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:3:1:1:1"/>
+            <Id value="contents" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:3:1:1:1"/>
             <Unary_Exp op="seq" typref="3">
-                <Id value="PRODUCT" typref="0" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:3:1:1:2:1"/>
+                <Id value="PRODUCT" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:3:1:1:2:1"/>
             </Unary_Exp>
         </Exp_Comparison>
         <Exp_Comparison op="&lt;=i">
             <Unary_Exp op="size" typref="1">
-                <Id value="contents" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:3:1:2:1:1"/>
+                <Id value="contents" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:3:1:2:1:1"/>
             </Unary_Exp>
-            <Id value="QUEUE_SIZE" typref="1" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:3:1:2:2"/>
+            <Id value="QUEUE_SIZE" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:3:1:2:2"/>
         </Exp_Comparison>
     </Define>
     <Define name="ass" hash="0"/>
@@ -67,9 +67,9 @@
             <Tag>Invariant is preserved</Tag>
             <Goal>
                 <Exp_Comparison op=":">
-                    <EmptySet typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:3:1:1:1,C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:4:1:2:1"/>
+                    <EmptySet typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:3:1:1:1,/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:4:1:2:1"/>
                     <Unary_Exp op="seq" typref="3">
-                        <Id value="PRODUCT" typref="0" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:3:1:1:2:1"/>
+                        <Id value="PRODUCT" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:3:1:1:2:1"/>
                     </Unary_Exp>
                 </Exp_Comparison>
             </Goal>
@@ -79,9 +79,9 @@
             <Goal>
                 <Exp_Comparison op="&lt;=i">
                     <Unary_Exp op="size" typref="1">
-                        <EmptySet typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:3:1:2:1:1,C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:4:1:2:1"/>
+                        <EmptySet typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:3:1:2:1:1,/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:4:1:2:1"/>
                     </Unary_Exp>
-                    <Id value="QUEUE_SIZE" typref="1" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:3:1:2:2"/>
+                    <Id value="QUEUE_SIZE" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:3:1:2:2"/>
                 </Exp_Comparison>
             </Goal>
         </Simple_Goal>
@@ -99,28 +99,28 @@
         <Definition name="ass"/>
         <Hypothesis>
             <Exp_Comparison op=":">
-                <Id value="ee" typref="1" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:1:2:1:1:1"/>
-                <Id value="PRODUCT" typref="0" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:1:2:1:1:2"/>
+                <Id value="ee" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:1:2:1:1:1"/>
+                <Id value="PRODUCT" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:1:2:1:1:2"/>
             </Exp_Comparison>
         </Hypothesis>
         <Hypothesis>
             <Exp_Comparison op="&lt;i">
                 <Unary_Exp op="size" typref="1">
-                    <Id value="contents" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:1:2:1:2:1:1"/>
+                    <Id value="contents" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:1:2:1:2:1:1"/>
                 </Unary_Exp>
-                <Id value="QUEUE_SIZE" typref="1" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:1:2:1:2:2"/>
+                <Id value="QUEUE_SIZE" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:1:2:1:2:2"/>
             </Exp_Comparison>
         </Hypothesis>
         <Simple_Goal>
             <Tag>Invariant is preserved</Tag>
             <Goal>
                 <Exp_Comparison op=":">
-                    <Binary_Exp op="&lt;-" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:3:1:1:1">
-                        <Id value="contents" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:1:3:1:2:1:1"/>
-                        <Id value="ee" typref="1" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:1:3:1:2:1:2"/>
+                    <Binary_Exp op="&lt;-" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:3:1:1:1">
+                        <Id value="contents" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:1:3:1:2:1:1"/>
+                        <Id value="ee" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:1:3:1:2:1:2"/>
                     </Binary_Exp>
                     <Unary_Exp op="seq" typref="3">
-                        <Id value="PRODUCT" typref="0" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:3:1:1:2:1"/>
+                        <Id value="PRODUCT" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:3:1:1:2:1"/>
                     </Unary_Exp>
                 </Exp_Comparison>
             </Goal>
@@ -130,12 +130,12 @@
             <Goal>
                 <Exp_Comparison op="&lt;=i">
                     <Unary_Exp op="size" typref="1">
-                        <Binary_Exp op="&lt;-" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:3:1:2:1:1">
-                            <Id value="contents" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:1:3:1:2:1:1"/>
-                            <Id value="ee" typref="1" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:1:3:1:2:1:2"/>
+                        <Binary_Exp op="&lt;-" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:3:1:2:1:1">
+                            <Id value="contents" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:1:3:1:2:1:1"/>
+                            <Id value="ee" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:1:3:1:2:1:2"/>
                         </Binary_Exp>
                     </Unary_Exp>
-                    <Id value="QUEUE_SIZE" typref="1" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:3:1:2:2"/>
+                    <Id value="QUEUE_SIZE" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:3:1:2:2"/>
                 </Exp_Comparison>
             </Goal>
         </Simple_Goal>
@@ -154,20 +154,20 @@
         <Hypothesis>
             <Exp_Comparison op="&gt;i">
                 <Unary_Exp op="size" typref="1">
-                    <Id value="contents" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:2:2:1:1:1"/>
+                    <Id value="contents" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:2:2:1:1:1"/>
                 </Unary_Exp>
-                <Integer_Literal value="0" typref="1" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:2:2:1:2"/>
+                <Integer_Literal value="0" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:2:2:1:2"/>
             </Exp_Comparison>
         </Hypothesis>
         <Simple_Goal>
             <Tag>Invariant is preserved</Tag>
             <Goal>
                 <Exp_Comparison op=":">
-                    <Unary_Exp op="tail" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:3:1:1:1">
-                        <Id value="contents" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:2:3:1:2:2:1:1"/>
+                    <Unary_Exp op="tail" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:3:1:1:1">
+                        <Id value="contents" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:2:3:1:2:2:1:1"/>
                     </Unary_Exp>
                     <Unary_Exp op="seq" typref="3">
-                        <Id value="PRODUCT" typref="0" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:3:1:1:2:1"/>
+                        <Id value="PRODUCT" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:3:1:1:2:1"/>
                     </Unary_Exp>
                 </Exp_Comparison>
             </Goal>
@@ -177,11 +177,11 @@
             <Goal>
                 <Exp_Comparison op="&lt;=i">
                     <Unary_Exp op="size" typref="1">
-                        <Unary_Exp op="tail" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:3:1:2:1:1">
-                            <Id value="contents" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:2:3:1:2:2:1:1"/>
+                        <Unary_Exp op="tail" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:3:1:2:1:1">
+                            <Id value="contents" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:2:3:1:2:2:1:1"/>
                         </Unary_Exp>
                     </Unary_Exp>
-                    <Id value="QUEUE_SIZE" typref="1" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:3:1:2:2"/>
+                    <Id value="QUEUE_SIZE" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:3:1:2:2"/>
                 </Exp_Comparison>
             </Goal>
         </Simple_Goal>
@@ -197,9 +197,9 @@
         <Definition name="seext"/>
         <Local_Hyp num="1">
             <Exp_Comparison op=":">
-                <Id value="contents" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:3:1:1:1"/>
+                <Id value="contents" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:3:1:1:1"/>
                 <Unary_Exp op="seq" typref="3">
-                    <Id value="PRODUCT" typref="0" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:3:1:1:2:1"/>
+                    <Id value="PRODUCT" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:3:1:1:2:1"/>
                 </Unary_Exp>
             </Exp_Comparison>
         </Local_Hyp>
@@ -208,10 +208,10 @@
             <Ref_Hyp num="1"/>
             <Goal>
                 <Exp_Comparison op=":">
-                    <Id value="contents" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:3:1:2:1:1"/>
+                    <Id value="contents" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:3:1:2:1:1"/>
                     <Unary_Exp op="seq" typref="3">
                         <Unary_Exp op="ran" typref="0">
-                            <Id value="contents" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:3:1:2:1:1"/>
+                            <Id value="contents" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:3:1:2:1:1"/>
                         </Unary_Exp>
                     </Unary_Exp>
                 </Exp_Comparison>
@@ -231,8 +231,8 @@
         <Definition name="ass"/>
         <Local_Hyp num="1">
             <Exp_Comparison op=":">
-                <Id value="ee" typref="1" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:1:2:1:1:1"/>
-                <Id value="PRODUCT" typref="0" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:1:2:1:1:2"/>
+                <Id value="ee" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:1:2:1:1:1"/>
+                <Id value="PRODUCT" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:1:2:1:1:2"/>
             </Exp_Comparison>
         </Local_Hyp>
         <Simple_Goal>
@@ -240,10 +240,10 @@
             <Ref_Hyp num="1"/>
             <Goal>
                 <Exp_Comparison op=":">
-                    <Id value="contents" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:1:2:1:2:1:1"/>
+                    <Id value="contents" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:1:2:1:2:1:1"/>
                     <Unary_Exp op="seq" typref="3">
                         <Unary_Exp op="ran" typref="0">
-                            <Id value="contents" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:1:2:1:2:1:1"/>
+                            <Id value="contents" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:1:2:1:2:1:1"/>
                         </Unary_Exp>
                     </Unary_Exp>
                 </Exp_Comparison>
@@ -263,26 +263,26 @@
         <Definition name="ass"/>
         <Hypothesis>
             <Exp_Comparison op=":">
-                <Id value="ee" typref="1" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:1:2:1:1:1"/>
-                <Id value="PRODUCT" typref="0" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:1:2:1:1:2"/>
+                <Id value="ee" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:1:2:1:1:1"/>
+                <Id value="PRODUCT" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:1:2:1:1:2"/>
             </Exp_Comparison>
         </Hypothesis>
         <Hypothesis>
             <Exp_Comparison op="&lt;i">
                 <Unary_Exp op="size" typref="1">
-                    <Id value="contents" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:1:2:1:2:1:1"/>
+                    <Id value="contents" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:1:2:1:2:1:1"/>
                 </Unary_Exp>
-                <Id value="QUEUE_SIZE" typref="1" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:1:2:1:2:2"/>
+                <Id value="QUEUE_SIZE" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:1:2:1:2:2"/>
             </Exp_Comparison>
         </Hypothesis>
         <Simple_Goal>
             <Tag>Operation is well defined</Tag>
             <Goal>
                 <Exp_Comparison op=":">
-                    <Id value="contents" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:1:3:1:2:1:1"/>
+                    <Id value="contents" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:1:3:1:2:1:1"/>
                     <Unary_Exp op="seq" typref="3">
                         <Unary_Exp op="ran" typref="0">
-                            <Id value="contents" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:1:3:1:2:1:1"/>
+                            <Id value="contents" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:1:3:1:2:1:1"/>
                         </Unary_Exp>
                     </Unary_Exp>
                 </Exp_Comparison>
@@ -304,10 +304,10 @@
             <Tag>Operation precondition is well defined</Tag>
             <Goal>
                 <Exp_Comparison op=":">
-                    <Id value="contents" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:2:2:1:1:1"/>
+                    <Id value="contents" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:2:2:1:1:1"/>
                     <Unary_Exp op="seq" typref="3">
                         <Unary_Exp op="ran" typref="0">
-                            <Id value="contents" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:2:2:1:1:1"/>
+                            <Id value="contents" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:2:2:1:1:1"/>
                         </Unary_Exp>
                     </Unary_Exp>
                 </Exp_Comparison>
@@ -328,19 +328,19 @@
         <Hypothesis>
             <Exp_Comparison op="&gt;i">
                 <Unary_Exp op="size" typref="1">
-                    <Id value="contents" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:2:2:1:1:1"/>
+                    <Id value="contents" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:2:2:1:1:1"/>
                 </Unary_Exp>
-                <Integer_Literal value="0" typref="1" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:2:2:1:2"/>
+                <Integer_Literal value="0" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:2:2:1:2"/>
             </Exp_Comparison>
         </Hypothesis>
         <Simple_Goal>
             <Tag>Operation is well defined</Tag>
             <Goal>
                 <Exp_Comparison op=":">
-                    <Id value="contents" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:2:3:1:1:2:1:1"/>
+                    <Id value="contents" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:2:3:1:1:2:1:1"/>
                     <Unary_Exp op="seq" typref="3">
                         <Unary_Exp op="ran" typref="0">
-                            <Id value="contents" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:2:3:1:1:2:1:1"/>
+                            <Id value="contents" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:2:3:1:1:2:1:1"/>
                         </Unary_Exp>
                     </Unary_Exp>
                 </Exp_Comparison>
@@ -351,7 +351,7 @@
             <Goal>
                 <Unary_Pred op="not">
                     <Exp_Comparison op="=">
-                        <Id value="contents" typref="2" tag="C:\Users\lucas.arruda.125\Desktop\mf-youfood\src\Queue.bxml:1:5:2:3:1:1:2:1:1"/>
+                        <Id value="contents" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Queue.bxml:1:5:2:3:1:1:2:1:1"/>
                         <EmptySet typref="2"/>
                     </Exp_Comparison>
                 </Unary_Pred>

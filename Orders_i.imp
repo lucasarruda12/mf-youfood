@@ -1,0 +1,221 @@
+/* Orders_i
+ * Author: jorgelino
+ * Creation date: 26/11/2026
+ */
+IMPLEMENTATION
+    Orders_i
+
+REFINES
+    Orders
+
+SEES
+    Context,
+    Queue_ctx
+
+CONCRETE_CONSTANTS
+    max_order_idx
+
+PROPERTIES
+    max_order_idx : NAT &
+    max_order_idx = MAX_ORDERS - 1
+
+VALUES
+    max_order_idx = MAX_ORDERS - 1
+
+CONCRETE_VARIABLES
+    arr_id,
+    arr_what,
+    arr_where,
+    arr_who,
+    arr_state,
+    next_id,
+    active_count
+
+INVARIANT
+    arr_id : 0..max_order_idx --> NAT &
+    arr_what : 0..max_order_idx --> NAT &
+    arr_where : 0..max_order_idx --> ADDRESS &
+    arr_who : 0..max_order_idx --> USER &
+    arr_state : 0..max_order_idx --> ORDER_STATE &
+    next_id : NAT1 &
+    active_count : 0..MAX_ORDERS
+
+INITIALISATION
+    VAR ii IN
+      ii := 0;
+      WHILE ii < MAX_ORDERS DO
+        arr_id(ii) := 0;
+        arr_what(ii) := 0;
+        arr_where(ii) := default_addr;
+        arr_who(ii) := default_user;
+        arr_state(ii) := PLACED;
+        ii := ii + 1
+      INVARIANT
+        ii : 0..MAX_ORDERS
+      VARIANT
+        MAX_ORDERS - ii
+      END
+    END;
+    next_id := 1;
+    active_count := 0
+
+OPERATIONS
+
+oid <-- create_order(prod_qty, aa, uu) =
+  BEGIN
+    oid := next_id;
+    arr_id(active_count) := next_id;
+    arr_what(active_count) := prod_qty;
+    arr_where(active_count) := aa;
+    arr_who(active_count) := uu;
+    arr_state(active_count) := PREPARING;
+    active_count := active_count + 1;
+    next_id := next_id + 1
+  END;
+
+mark_order_ready(oid) =
+  VAR ii, found, cur_id IN
+    ii := 0;
+    found := FALSE;
+    WHILE ii < active_count & found = FALSE DO
+      cur_id := arr_id(ii);
+      IF cur_id = oid THEN
+        arr_state(ii) := READY;
+        found := TRUE
+      END;
+      ii := ii + 1
+    INVARIANT
+      ii : 0..active_count &
+      found : BOOL
+    VARIANT
+      active_count - ii
+    END
+  END;
+
+mark_order_moving(oid) =
+  VAR ii, found, cur_id IN
+    ii := 0;
+    found := FALSE;
+    WHILE ii < active_count & found = FALSE DO
+      cur_id := arr_id(ii);
+      IF cur_id = oid THEN
+        arr_state(ii) := MOVING;
+        found := TRUE
+      END;
+      ii := ii + 1
+    INVARIANT
+      ii : 0..active_count &
+      found : BOOL
+    VARIANT
+      active_count - ii
+    END
+  END;
+
+mark_order_delivered(oid) =
+  VAR ii, found, cur_id IN
+    ii := 0;
+    found := FALSE;
+    WHILE ii < active_count & found = FALSE DO
+      cur_id := arr_id(ii);
+      IF cur_id = oid THEN
+        arr_state(ii) := DELIVERED;
+        found := TRUE
+      END;
+      ii := ii + 1
+    INVARIANT
+      ii : 0..active_count &
+      found : BOOL
+    VARIANT
+      active_count - ii
+    END
+  END;
+
+st <-- get_order_state(oid) =
+  VAR ii, res, found, cur_id, cur_st IN
+    ii := 0;
+    res := PLACED;
+    found := FALSE;
+    WHILE ii < active_count & found = FALSE DO
+      cur_id := arr_id(ii);
+      cur_st := arr_state(ii);
+      IF cur_id = oid THEN
+        res := cur_st;
+        found := TRUE
+      END;
+      ii := ii + 1
+    INVARIANT
+      ii : 0..active_count &
+      res : ORDER_STATE &
+      found : BOOL
+    VARIANT
+      active_count - ii
+    END;
+    st := res
+  END;
+
+uu <-- get_order_user(oid) =
+  VAR ii, res, found, cur_id, cur_uu IN
+    ii := 0;
+    res := default_user;
+    found := FALSE;
+    WHILE ii < active_count & found = FALSE DO
+      cur_id := arr_id(ii);
+      cur_uu := arr_who(ii);
+      IF cur_id = oid THEN
+        res := cur_uu;
+        found := TRUE
+      END;
+      ii := ii + 1
+    INVARIANT
+      ii : 0..active_count &
+      res : USER &
+      found : BOOL
+    VARIANT
+      active_count - ii
+    END;
+    uu := res
+  END;
+
+aa <-- get_order_address(oid) =
+  VAR ii, res, found, cur_id, cur_aa IN
+    ii := 0;
+    res := default_addr;
+    found := FALSE;
+    WHILE ii < active_count & found = FALSE DO
+      cur_id := arr_id(ii);
+      cur_aa := arr_where(ii);
+      IF cur_id = oid THEN
+        res := cur_aa;
+        found := TRUE
+      END;
+      ii := ii + 1
+    INVARIANT
+      ii : 0..active_count &
+      res : ADDRESS &
+      found : BOOL
+    VARIANT
+      active_count - ii
+    END;
+    aa := res
+  END;
+
+ex <-- order_exists(oid) =
+  VAR ii, found, cur_id IN
+    ii := 0;
+    found := FALSE;
+    WHILE ii < active_count & found = FALSE DO
+      cur_id := arr_id(ii);
+      IF cur_id = oid THEN
+        found := TRUE
+      END;
+      ii := ii + 1
+    INVARIANT
+      ii : 0..active_count &
+      found : BOOL
+    VARIANT
+      active_count - ii
+    END;
+    ex := found
+  END
+
+END

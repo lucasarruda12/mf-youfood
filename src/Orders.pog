@@ -1,0 +1,1464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Proof_Obligations xmlns="https://www.atelierb.eu/Formats/pog" version="1.0">
+    <Define name="B definitions" hash="7128875304803749033">
+        <Exp_Comparison op="=">
+            <Id value="NAT" typref="0"/>
+            <Binary_Exp op=".." typref="0">
+                <Integer_Literal value="0" typref="1"/>
+                <Id value="MAXINT" typref="1"/>
+            </Binary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op="=">
+            <Id value="INT" typref="0"/>
+            <Binary_Exp op=".." typref="0">
+                <Id value="MININT" typref="1"/>
+                <Id value="MAXINT" typref="1"/>
+            </Binary_Exp>
+        </Exp_Comparison>
+    </Define>
+    <Define name="ctx" hash="1018107374186292632">
+        <Set>
+            <Id value="PRODUCT" typref="0"/>
+        </Set>
+        <Set>
+            <Id value="USER" typref="0"/>
+        </Set>
+        <Set>
+            <Id value="ADDRESS" typref="0"/>
+        </Set>
+        <Set>
+            <Id value="ORDER_STATE" typref="0"/>
+            <Enumerated_Values>
+                <Id value="PLACED" typref="1"/>
+                <Id value="PREPARING" typref="1"/>
+                <Id value="READY" typref="1"/>
+                <Id value="MOVING" typref="1"/>
+                <Id value="DELIVERED" typref="1"/>
+            </Enumerated_Values>
+        </Set>
+        <Set>
+            <Id value="DRIVER_STATE" typref="0"/>
+            <Enumerated_Values>
+                <Id value="AVAILABLE" typref="1"/>
+                <Id value="BUSY" typref="1"/>
+            </Enumerated_Values>
+        </Set>
+        <Exp_Comparison op=":">
+            <Id value="QUEUE_SIZE" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src//Queue_ctx.bxml:1:3:1:1:1"/>
+            <Id value="NAT" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src//Queue_ctx.bxml:1:3:1:1:2"/>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="pp0" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src//Queue_ctx.bxml:1:3:1:2:1"/>
+            <Id value="PRODUCT" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src//Queue_ctx.bxml:1:3:1:2:2"/>
+        </Exp_Comparison>
+        <Exp_Comparison op="&gt;=i">
+            <Id value="QUEUE_SIZE" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src//Queue_ctx.bxml:1:3:1:3:1"/>
+            <Integer_Literal value="1" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src//Queue_ctx.bxml:1:3:1:3:2"/>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="MAX_ORDERS" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src//Context.bxml:1:4:1:1:1"/>
+            <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src//Context.bxml:1:4:1:1:2"/>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="MAX_STORAGE" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src//Context.bxml:1:4:1:2:1"/>
+            <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src//Context.bxml:1:4:1:2:2"/>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="DRIVERS" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src//Context.bxml:1:4:1:3:1"/>
+            <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src//Context.bxml:1:4:1:3:2"/>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="ROUTE_SIZE" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src//Context.bxml:1:4:1:4:1"/>
+            <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src//Context.bxml:1:4:1:4:2"/>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="MAX_DISTANCE" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src//Context.bxml:1:4:1:5:1"/>
+            <Id value="NAT" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src//Context.bxml:1:4:1:5:2"/>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="default_addr" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src//Context.bxml:1:4:1:6:1"/>
+            <Id value="ADDRESS" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src//Context.bxml:1:4:1:6:2"/>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="default_user" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src//Context.bxml:1:4:1:7:1"/>
+            <Id value="USER" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src//Context.bxml:1:4:1:7:2"/>
+        </Exp_Comparison>
+    </Define>
+    <Define name="seext" hash="0"/>
+    <Define name="lprp" hash="0"/>
+    <Define name="inprp" hash="0"/>
+    <Define name="inext" hash="0"/>
+    <Define name="inv" hash="5892271660362097076">
+        <Exp_Comparison op=":">
+            <Id value="what" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:1:1"/>
+            <Binary_Exp op="+-&gt;" typref="3">
+                <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:1:2:1"/>
+                <Id value="NAT" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:1:2:2"/>
+            </Binary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="where" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:2:1"/>
+            <Binary_Exp op="+-&gt;" typref="3">
+                <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:2:2:1"/>
+                <Id value="ADDRESS" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:2:2:2"/>
+            </Binary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="who" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:3:1"/>
+            <Binary_Exp op="+-&gt;" typref="3">
+                <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:3:2:1"/>
+                <Id value="USER" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:3:2:2"/>
+            </Binary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:4:1"/>
+            <Binary_Exp op="+-&gt;" typref="3">
+                <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:4:2:1"/>
+                <Id value="ORDER_STATE" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:4:2:2"/>
+            </Binary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="current_ident" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:5:1"/>
+            <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:5:2"/>
+        </Exp_Comparison>
+        <Exp_Comparison op="=">
+            <Unary_Exp op="dom" typref="0">
+                <Id value="what" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:6:1:1"/>
+            </Unary_Exp>
+            <Unary_Exp op="dom" typref="0">
+                <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:6:2:1"/>
+            </Unary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op="=">
+            <Unary_Exp op="dom" typref="0">
+                <Id value="where" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:7:1:1"/>
+            </Unary_Exp>
+            <Unary_Exp op="dom" typref="0">
+                <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:7:2:1"/>
+            </Unary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op="=">
+            <Unary_Exp op="dom" typref="0">
+                <Id value="who" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:8:1:1"/>
+            </Unary_Exp>
+            <Unary_Exp op="dom" typref="0">
+                <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:8:2:1"/>
+            </Unary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op="&lt;=i">
+            <Unary_Exp op="card" typref="1">
+                <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:9:1:1"/>
+            </Unary_Exp>
+            <Id value="MAX_ORDERS" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:9:2"/>
+        </Exp_Comparison>
+        <Quantified_Pred type="!">
+            <Variables>
+                <Id value="oid" typref="1"/>
+            </Variables>
+            <Body>
+                <Binary_Pred op="=&gt;">
+                    <Exp_Comparison op=":">
+                        <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:1:1"/>
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:1:2:1"/>
+                        </Unary_Exp>
+                    </Exp_Comparison>
+                    <Exp_Comparison op="&lt;i">
+                        <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:2:1"/>
+                        <Id value="current_ident" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:2:2"/>
+                    </Exp_Comparison>
+                </Binary_Pred>
+            </Body>
+        </Quantified_Pred>
+    </Define>
+    <Define name="ass" hash="0"/>
+    <Define name="cst" hash="0"/>
+    <Define name="sets" hash="0"/>
+    <Proof_Obligation goalHash="18403118938305631112">
+        <Tag>Initialisation</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:1:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <EmptySet typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:1:2:1,/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:4:1:4:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <EmptySet typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:1:1,/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:4:1:1:2:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:1:2:1"/>
+                        <Id value="NAT" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:1:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <EmptySet typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:2:1,/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:4:1:2:2:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:2:2:1"/>
+                        <Id value="ADDRESS" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:2:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <EmptySet typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:3:1,/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:4:1:3:2:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:3:2:1"/>
+                        <Id value="USER" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:3:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <EmptySet typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:4:1,/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:4:1:4:2:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:4:2:1"/>
+                        <Id value="ORDER_STATE" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:4:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Integer_Literal value="1" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:5:1,/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:4:1:5:2:1"/>
+                    <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:5:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="&lt;=i">
+                    <Unary_Exp op="card" typref="1">
+                        <EmptySet typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:9:1:1,/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:4:1:4:2:1"/>
+                    </Unary_Exp>
+                    <Id value="MAX_ORDERS" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:9:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="1"/>
+            <Goal>
+                <Exp_Comparison op="&lt;i">
+                    <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:2:1"/>
+                    <Integer_Literal value="1" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:2:2,/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:4:1:5:2:1"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="12245713040077883201">
+        <Tag>Operation_create_order</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="prod_qty" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:3:1:1:1"/>
+                <Id value="NAT" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:3:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="aa" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:3:1:2:1"/>
+                <Id value="ADDRESS" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:3:1:2:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="uu" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:3:1:3:1"/>
+                <Id value="USER" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:3:1:3:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op="&lt;i">
+                <Unary_Exp op="card" typref="1">
+                    <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:3:1:4:1:1"/>
+                </Unary_Exp>
+                <Id value="MAX_ORDERS" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:3:1:4:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:1:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Binary_Exp op="\/" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:1:2:1">
+                        <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:5:2:1:1"/>
+                        <Nary_Exp op="{" typref="2">
+                            <Binary_Exp op="|-&gt;" typref="4">
+                                <Id value="current_ident" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:5:2:1:2:1:1"/>
+                                <Id value="PREPARING" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:5:2:1:2:1:2"/>
+                            </Binary_Exp>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Binary_Exp op="\/" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:1:1">
+                        <Id value="what" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:2:2:1:1"/>
+                        <Nary_Exp op="{" typref="2">
+                            <Binary_Exp op="|-&gt;" typref="4">
+                                <Id value="current_ident" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:2:2:1:2:1:1"/>
+                                <Id value="prod_qty" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:2:2:1:2:1:2"/>
+                            </Binary_Exp>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:1:2:1"/>
+                        <Id value="NAT" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:1:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Binary_Exp op="\/" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:2:1">
+                        <Id value="where" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:3:2:1:1"/>
+                        <Nary_Exp op="{" typref="2">
+                            <Binary_Exp op="|-&gt;" typref="4">
+                                <Id value="current_ident" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:3:2:1:2:1:1"/>
+                                <Id value="aa" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:3:2:1:2:1:2"/>
+                            </Binary_Exp>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:2:2:1"/>
+                        <Id value="ADDRESS" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:2:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Binary_Exp op="\/" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:3:1">
+                        <Id value="who" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:4:2:1:1"/>
+                        <Nary_Exp op="{" typref="2">
+                            <Binary_Exp op="|-&gt;" typref="4">
+                                <Id value="current_ident" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:4:2:1:2:1:1"/>
+                                <Id value="uu" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:4:2:1:2:1:2"/>
+                            </Binary_Exp>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:3:2:1"/>
+                        <Id value="USER" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:3:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Binary_Exp op="\/" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:4:1">
+                        <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:5:2:1:1"/>
+                        <Nary_Exp op="{" typref="2">
+                            <Binary_Exp op="|-&gt;" typref="4">
+                                <Id value="current_ident" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:5:2:1:2:1:1"/>
+                                <Id value="PREPARING" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:5:2:1:2:1:2"/>
+                            </Binary_Exp>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:4:2:1"/>
+                        <Id value="ORDER_STATE" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:4:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Binary_Exp op="+i" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:5:1">
+                        <Id value="current_ident" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:6:2:1:1"/>
+                        <Integer_Literal value="1" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:6:2:1:2"/>
+                    </Binary_Exp>
+                    <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:5:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Unary_Exp op="dom" typref="0">
+                        <Binary_Exp op="\/" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:6:1:1">
+                            <Id value="what" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:2:2:1:1"/>
+                            <Nary_Exp op="{" typref="2">
+                                <Binary_Exp op="|-&gt;" typref="4">
+                                    <Id value="current_ident" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:2:2:1:2:1:1"/>
+                                    <Id value="prod_qty" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:2:2:1:2:1:2"/>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                    <Unary_Exp op="dom" typref="0">
+                        <Binary_Exp op="\/" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:6:2:1">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:5:2:1:1"/>
+                            <Nary_Exp op="{" typref="2">
+                                <Binary_Exp op="|-&gt;" typref="4">
+                                    <Id value="current_ident" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:5:2:1:2:1:1"/>
+                                    <Id value="PREPARING" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:5:2:1:2:1:2"/>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Unary_Exp op="dom" typref="0">
+                        <Binary_Exp op="\/" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:7:1:1">
+                            <Id value="where" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:3:2:1:1"/>
+                            <Nary_Exp op="{" typref="2">
+                                <Binary_Exp op="|-&gt;" typref="4">
+                                    <Id value="current_ident" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:3:2:1:2:1:1"/>
+                                    <Id value="aa" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:3:2:1:2:1:2"/>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                    <Unary_Exp op="dom" typref="0">
+                        <Binary_Exp op="\/" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:7:2:1">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:5:2:1:1"/>
+                            <Nary_Exp op="{" typref="2">
+                                <Binary_Exp op="|-&gt;" typref="4">
+                                    <Id value="current_ident" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:5:2:1:2:1:1"/>
+                                    <Id value="PREPARING" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:5:2:1:2:1:2"/>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Unary_Exp op="dom" typref="0">
+                        <Binary_Exp op="\/" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:8:1:1">
+                            <Id value="who" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:4:2:1:1"/>
+                            <Nary_Exp op="{" typref="2">
+                                <Binary_Exp op="|-&gt;" typref="4">
+                                    <Id value="current_ident" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:4:2:1:2:1:1"/>
+                                    <Id value="uu" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:4:2:1:2:1:2"/>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                    <Unary_Exp op="dom" typref="0">
+                        <Binary_Exp op="\/" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:8:2:1">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:5:2:1:1"/>
+                            <Nary_Exp op="{" typref="2">
+                                <Binary_Exp op="|-&gt;" typref="4">
+                                    <Id value="current_ident" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:5:2:1:2:1:1"/>
+                                    <Id value="PREPARING" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:5:2:1:2:1:2"/>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="&lt;=i">
+                    <Unary_Exp op="card" typref="1">
+                        <Binary_Exp op="\/" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:9:1:1">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:5:2:1:1"/>
+                            <Nary_Exp op="{" typref="2">
+                                <Binary_Exp op="|-&gt;" typref="4">
+                                    <Id value="current_ident" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:5:2:1:2:1:1"/>
+                                    <Id value="PREPARING" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:5:2:1:2:1:2"/>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                    <Id value="MAX_ORDERS" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:9:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="1"/>
+            <Goal>
+                <Exp_Comparison op="&lt;i">
+                    <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:2:1"/>
+                    <Binary_Exp op="+i" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:2:2">
+                        <Id value="current_ident" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:6:2:1:1"/>
+                        <Integer_Literal value="1" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:4:1:6:2:1:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="15875825474945496763">
+        <Tag>Operation_mark_order_ready</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:2:1:1:1"/>
+                <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:2:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:2:1:2:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:2:1:2:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op="=">
+                <Binary_Exp op="(" typref="1">
+                    <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:2:1:3:1:1"/>
+                    <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:2:1:3:1:2"/>
+                </Binary_Exp>
+                <Id value="PREPARING" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:2:1:3:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="oid" suffix="1" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:1:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Binary_Exp op="&lt;+" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:1:2:1">
+                        <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:3:1:1:1:1"/>
+                        <Nary_Exp op="{" typref="2">
+                            <Binary_Exp op="|-&gt;" typref="4">
+                                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:3:1:1:1:2"/>
+                                <Id value="READY" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:3:1:2:1"/>
+                            </Binary_Exp>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Binary_Exp op="&lt;+" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:4:1">
+                        <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:3:1:1:1:1"/>
+                        <Nary_Exp op="{" typref="2">
+                            <Binary_Exp op="|-&gt;" typref="4">
+                                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:3:1:1:1:2"/>
+                                <Id value="READY" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:3:1:2:1"/>
+                            </Binary_Exp>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:4:2:1"/>
+                        <Id value="ORDER_STATE" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:4:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="what" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:6:1:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="dom" typref="0">
+                        <Binary_Exp op="&lt;+" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:6:2:1">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:3:1:1:1:1"/>
+                            <Nary_Exp op="{" typref="2">
+                                <Binary_Exp op="|-&gt;" typref="4">
+                                    <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:3:1:1:1:2"/>
+                                    <Id value="READY" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:3:1:2:1"/>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="where" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:7:1:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="dom" typref="0">
+                        <Binary_Exp op="&lt;+" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:7:2:1">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:3:1:1:1:1"/>
+                            <Nary_Exp op="{" typref="2">
+                                <Binary_Exp op="|-&gt;" typref="4">
+                                    <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:3:1:1:1:2"/>
+                                    <Id value="READY" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:3:1:2:1"/>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="who" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:8:1:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="dom" typref="0">
+                        <Binary_Exp op="&lt;+" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:8:2:1">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:3:1:1:1:1"/>
+                            <Nary_Exp op="{" typref="2">
+                                <Binary_Exp op="|-&gt;" typref="4">
+                                    <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:3:1:1:1:2"/>
+                                    <Id value="READY" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:3:1:2:1"/>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="&lt;=i">
+                    <Unary_Exp op="card" typref="1">
+                        <Binary_Exp op="&lt;+" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:9:1:1">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:3:1:1:1:1"/>
+                            <Nary_Exp op="{" typref="2">
+                                <Binary_Exp op="|-&gt;" typref="4">
+                                    <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:3:1:1:1:2"/>
+                                    <Id value="READY" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:3:1:2:1"/>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                    <Id value="MAX_ORDERS" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:9:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="1"/>
+            <Goal>
+                <Exp_Comparison op="&lt;i">
+                    <Id value="oid" suffix="1" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:2:1"/>
+                    <Id value="current_ident" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:2:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="2918618730779398150">
+        <Tag>Operation_mark_order_moving</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:2:1:1:1"/>
+                <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:2:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:2:1:2:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:2:1:2:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op="=">
+                <Binary_Exp op="(" typref="1">
+                    <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:2:1:3:1:1"/>
+                    <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:2:1:3:1:2"/>
+                </Binary_Exp>
+                <Id value="READY" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:2:1:3:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="oid" suffix="1" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:1:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Binary_Exp op="&lt;+" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:1:2:1">
+                        <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:3:1:1:1:1"/>
+                        <Nary_Exp op="{" typref="2">
+                            <Binary_Exp op="|-&gt;" typref="4">
+                                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:3:1:1:1:2"/>
+                                <Id value="MOVING" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:3:1:2:1"/>
+                            </Binary_Exp>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Binary_Exp op="&lt;+" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:4:1">
+                        <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:3:1:1:1:1"/>
+                        <Nary_Exp op="{" typref="2">
+                            <Binary_Exp op="|-&gt;" typref="4">
+                                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:3:1:1:1:2"/>
+                                <Id value="MOVING" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:3:1:2:1"/>
+                            </Binary_Exp>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:4:2:1"/>
+                        <Id value="ORDER_STATE" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:4:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="what" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:6:1:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="dom" typref="0">
+                        <Binary_Exp op="&lt;+" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:6:2:1">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:3:1:1:1:1"/>
+                            <Nary_Exp op="{" typref="2">
+                                <Binary_Exp op="|-&gt;" typref="4">
+                                    <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:3:1:1:1:2"/>
+                                    <Id value="MOVING" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:3:1:2:1"/>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="where" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:7:1:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="dom" typref="0">
+                        <Binary_Exp op="&lt;+" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:7:2:1">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:3:1:1:1:1"/>
+                            <Nary_Exp op="{" typref="2">
+                                <Binary_Exp op="|-&gt;" typref="4">
+                                    <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:3:1:1:1:2"/>
+                                    <Id value="MOVING" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:3:1:2:1"/>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="who" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:8:1:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="dom" typref="0">
+                        <Binary_Exp op="&lt;+" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:8:2:1">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:3:1:1:1:1"/>
+                            <Nary_Exp op="{" typref="2">
+                                <Binary_Exp op="|-&gt;" typref="4">
+                                    <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:3:1:1:1:2"/>
+                                    <Id value="MOVING" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:3:1:2:1"/>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="&lt;=i">
+                    <Unary_Exp op="card" typref="1">
+                        <Binary_Exp op="&lt;+" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:9:1:1">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:3:1:1:1:1"/>
+                            <Nary_Exp op="{" typref="2">
+                                <Binary_Exp op="|-&gt;" typref="4">
+                                    <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:3:1:1:1:2"/>
+                                    <Id value="MOVING" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:3:1:2:1"/>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                    <Id value="MAX_ORDERS" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:9:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="1"/>
+            <Goal>
+                <Exp_Comparison op="&lt;i">
+                    <Id value="oid" suffix="1" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:2:1"/>
+                    <Id value="current_ident" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:2:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="3298247730046367184">
+        <Tag>Operation_mark_order_delivered</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:2:1:1:1"/>
+                <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:2:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:2:1:2:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:2:1:2:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op="=">
+                <Binary_Exp op="(" typref="1">
+                    <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:2:1:3:1:1"/>
+                    <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:2:1:3:1:2"/>
+                </Binary_Exp>
+                <Id value="MOVING" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:2:1:3:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="oid" suffix="1" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:1:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Binary_Exp op="&lt;+" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:1:2:1">
+                        <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:3:1:1:1:1"/>
+                        <Nary_Exp op="{" typref="2">
+                            <Binary_Exp op="|-&gt;" typref="4">
+                                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:3:1:1:1:2"/>
+                                <Id value="DELIVERED" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:3:1:2:1"/>
+                            </Binary_Exp>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Binary_Exp op="&lt;+" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:4:1">
+                        <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:3:1:1:1:1"/>
+                        <Nary_Exp op="{" typref="2">
+                            <Binary_Exp op="|-&gt;" typref="4">
+                                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:3:1:1:1:2"/>
+                                <Id value="DELIVERED" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:3:1:2:1"/>
+                            </Binary_Exp>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:4:2:1"/>
+                        <Id value="ORDER_STATE" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:4:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="what" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:6:1:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="dom" typref="0">
+                        <Binary_Exp op="&lt;+" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:6:2:1">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:3:1:1:1:1"/>
+                            <Nary_Exp op="{" typref="2">
+                                <Binary_Exp op="|-&gt;" typref="4">
+                                    <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:3:1:1:1:2"/>
+                                    <Id value="DELIVERED" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:3:1:2:1"/>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="where" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:7:1:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="dom" typref="0">
+                        <Binary_Exp op="&lt;+" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:7:2:1">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:3:1:1:1:1"/>
+                            <Nary_Exp op="{" typref="2">
+                                <Binary_Exp op="|-&gt;" typref="4">
+                                    <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:3:1:1:1:2"/>
+                                    <Id value="DELIVERED" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:3:1:2:1"/>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="=">
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="who" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:8:1:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="dom" typref="0">
+                        <Binary_Exp op="&lt;+" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:8:2:1">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:3:1:1:1:1"/>
+                            <Nary_Exp op="{" typref="2">
+                                <Binary_Exp op="|-&gt;" typref="4">
+                                    <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:3:1:1:1:2"/>
+                                    <Id value="DELIVERED" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:3:1:2:1"/>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op="&lt;=i">
+                    <Unary_Exp op="card" typref="1">
+                        <Binary_Exp op="&lt;+" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:9:1:1">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:3:1:1:1:1"/>
+                            <Nary_Exp op="{" typref="2">
+                                <Binary_Exp op="|-&gt;" typref="4">
+                                    <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:3:1:1:1:2"/>
+                                    <Id value="DELIVERED" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:3:1:2:1"/>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                    <Id value="MAX_ORDERS" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:9:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="1"/>
+            <Goal>
+                <Exp_Comparison op="&lt;i">
+                    <Id value="oid" suffix="1" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:2:1"/>
+                    <Id value="current_ident" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:10:2:1:2:2"/>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="12881653514942507828">
+        <Tag>WellDefinednessInvariant</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="what" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:1:1"/>
+                <Binary_Exp op="+-&gt;" typref="3">
+                    <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:1:2:1"/>
+                    <Id value="NAT" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:1:2:2"/>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="2">
+            <Exp_Comparison op=":">
+                <Id value="where" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:2:1"/>
+                <Binary_Exp op="+-&gt;" typref="3">
+                    <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:2:2:1"/>
+                    <Id value="ADDRESS" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:2:2:2"/>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="3">
+            <Exp_Comparison op=":">
+                <Id value="who" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:3:1"/>
+                <Binary_Exp op="+-&gt;" typref="3">
+                    <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:3:2:1"/>
+                    <Id value="USER" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:3:2:2"/>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="4">
+            <Exp_Comparison op=":">
+                <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:4:1"/>
+                <Binary_Exp op="+-&gt;" typref="3">
+                    <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:4:2:1"/>
+                    <Id value="ORDER_STATE" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:4:2:2"/>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="5">
+            <Exp_Comparison op=":">
+                <Id value="current_ident" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:5:1"/>
+                <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:5:2"/>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="6">
+            <Exp_Comparison op="=">
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="what" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:6:1:1"/>
+                </Unary_Exp>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:6:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="7">
+            <Exp_Comparison op="=">
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="where" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:7:1:1"/>
+                </Unary_Exp>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:7:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="8">
+            <Exp_Comparison op="=">
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="who" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:8:1:1"/>
+                </Unary_Exp>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:8:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Invariant is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="5"/>
+            <Ref_Hyp num="6"/>
+            <Ref_Hyp num="7"/>
+            <Ref_Hyp num="8"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:9:1:1"/>
+                    <Unary_Exp op="FIN" typref="3">
+                        <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:3:1:9:1:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="7257173291332408516">
+        <Tag>WellDefinednessPrecondition_create_order</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="prod_qty" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:3:1:1:1"/>
+                <Id value="NAT" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:3:1:1:2"/>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="2">
+            <Exp_Comparison op=":">
+                <Id value="aa" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:3:1:2:1"/>
+                <Id value="ADDRESS" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:3:1:2:2"/>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="3">
+            <Exp_Comparison op=":">
+                <Id value="uu" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:3:1:3:1"/>
+                <Id value="USER" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:3:1:3:2"/>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:3:1:4:1:1"/>
+                    <Unary_Exp op="FIN" typref="3">
+                        <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:1:3:1:4:1:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="6801347654352144731">
+        <Tag>WellDefinednessPrecondition_mark_order_ready</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:2:1:1:1"/>
+                <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:2:1:1:2"/>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="2">
+            <Exp_Comparison op=":">
+                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:2:1:2:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:2:1:2:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:2:1:3:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:2:1:3:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:2:2:1:3:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="5817122330872494379">
+        <Tag>WellDefinednessPrecondition_mark_order_moving</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:2:1:1:1"/>
+                <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:2:1:1:2"/>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="2">
+            <Exp_Comparison op=":">
+                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:2:1:2:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:2:1:2:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:2:1:3:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:2:1:3:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:3:2:1:3:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="10266234328880142190">
+        <Tag>WellDefinednessPrecondition_mark_order_delivered</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:2:1:1:1"/>
+                <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:2:1:1:2"/>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="2">
+            <Exp_Comparison op=":">
+                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:2:1:2:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:2:1:2:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:2:1:3:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:2:1:3:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:4:2:1:3:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="16721935155262245934">
+        <Tag>WellDefinedness_get_order_state</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:5:3:1:1:1"/>
+                <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:5:3:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:5:3:1:2:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:5:3:1:2:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:5:4:1:2:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:5:4:1:2:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="order_state" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:5:4:1:2:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="8374230675834898529">
+        <Tag>WellDefinedness_get_order_user</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:6:3:1:1:1"/>
+                <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:6:3:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:6:3:1:2:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="who" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:6:3:1:2:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="who" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:6:4:1:2:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="who" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:6:4:1:2:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="who" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:6:4:1:2:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="6476310133836513480">
+        <Tag>WellDefinedness_get_order_address</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:7:3:1:1:1"/>
+                <Id value="NAT1" typref="0" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:7:3:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="oid" typref="1" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:7:3:1:2:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="where" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:7:3:1:2:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="where" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:7:4:1:2:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="where" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:7:4:1:2:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="where" typref="2" tag="/home/jorgelino/Documents/mf-youfood/src/Orders.bxml:1:5:7:4:1:2:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <TypeInfos>
+        <Type id="0">
+            <Unary_Exp op="POW">
+                <Id value="INTEGER"/>
+            </Unary_Exp>
+        </Type>
+        <Type id="1">
+            <Id value="INTEGER"/>
+        </Type>
+        <Type id="2">
+            <Unary_Exp op="POW">
+                <Binary_Exp op="*">
+                    <Id value="INTEGER"/>
+                    <Id value="INTEGER"/>
+                </Binary_Exp>
+            </Unary_Exp>
+        </Type>
+        <Type id="3">
+            <Unary_Exp op="POW">
+                <Unary_Exp op="POW">
+                    <Binary_Exp op="*">
+                        <Id value="INTEGER"/>
+                        <Id value="INTEGER"/>
+                    </Binary_Exp>
+                </Unary_Exp>
+            </Unary_Exp>
+        </Type>
+        <Type id="4">
+            <Binary_Exp op="*">
+                <Id value="INTEGER"/>
+                <Id value="INTEGER"/>
+            </Binary_Exp>
+        </Type>
+    </TypeInfos>
+</Proof_Obligations>

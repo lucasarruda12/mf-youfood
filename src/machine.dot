@@ -1,8 +1,0 @@
-digraph {
-Context [ label=" Context " shape= box ]
-Queue_ctx_i [ label=" Queue_ctx\nQueue_ctx_i " shape= box ]
-Queue_i [ label=" Queue\nQueue_i " shape= box ]
-
-"Context" -> "Queue_ctx_i" [style= dotted ]
-"Queue_i" -> "Queue_ctx_i" [style= dotted ]
-}

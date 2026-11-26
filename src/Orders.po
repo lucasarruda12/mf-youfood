@@ -1,0 +1,121 @@
+THEORY ProofList IS
+_f(1) & _f(2) & _f(12) & _f(28) & _f(67) & WellDefinedness_get_order_address.1,(_f(64) => _f(68));
+_f(1) & _f(2) & _f(12) & _f(28) & _f(65) & WellDefinedness_get_order_user.1,(_f(64) => _f(66));
+_f(1) & _f(2) & _f(12) & _f(28) & _f(29) & WellDefinedness_get_order_state.1,(_f(64) => _f(63));
+_f(1) & _f(2) & _f(12) & WellDefinednessPrecondition_mark_order_delivered.1,(_f(28) & _f(29) & _f(62) => _f(63));
+_f(1) & _f(2) & _f(12) & WellDefinednessPrecondition_mark_order_moving.1,(_f(28) & _f(29) & _f(62) => _f(63));
+_f(1) & _f(2) & _f(12) & WellDefinednessPrecondition_mark_order_ready.1,(_f(28) & _f(29) & _f(62) => _f(63));
+_f(1) & _f(2) & _f(12) & WellDefinednessPrecondition_create_order.1,(_f(13) & _f(14) & _f(15) & _f(62) => _f(61));
+_f(1) & _f(2) & WellDefinednessInvariant.1,(_f(52) & _f(53) & _f(54) & _f(55) & _f(56) & _f(57) & _f(58) & _f(59) & _f(60) => _f(61));
+_f(1) & _f(2) & _f(12) & _f(28) & _f(29) & _f(45) & Operation_mark_order_delivered.6,(_f(46) & _f(4) => _f(37));
+_f(1) & _f(2) & _f(12) & _f(28) & _f(29) & _f(45) & Operation_mark_order_delivered.5,(_f(4) => _f(51));
+_f(1) & _f(2) & _f(12) & _f(28) & _f(29) & _f(45) & Operation_mark_order_delivered.4,(_f(4) => _f(50));
+_f(1) & _f(2) & _f(12) & _f(28) & _f(29) & _f(45) & Operation_mark_order_delivered.3,(_f(4) => _f(49));
+_f(1) & _f(2) & _f(12) & _f(28) & _f(29) & _f(45) & Operation_mark_order_delivered.2,(_f(4) => _f(48));
+_f(1) & _f(2) & _f(12) & _f(28) & _f(29) & _f(45) & Operation_mark_order_delivered.1,(_f(4) => _f(47));
+_f(1) & _f(2) & _f(12) & _f(28) & _f(29) & _f(38) & Operation_mark_order_moving.6,(_f(39) & _f(4) => _f(37));
+_f(1) & _f(2) & _f(12) & _f(28) & _f(29) & _f(38) & Operation_mark_order_moving.5,(_f(4) => _f(44));
+_f(1) & _f(2) & _f(12) & _f(28) & _f(29) & _f(38) & Operation_mark_order_moving.4,(_f(4) => _f(43));
+_f(1) & _f(2) & _f(12) & _f(28) & _f(29) & _f(38) & Operation_mark_order_moving.3,(_f(4) => _f(42));
+_f(1) & _f(2) & _f(12) & _f(28) & _f(29) & _f(38) & Operation_mark_order_moving.2,(_f(4) => _f(41));
+_f(1) & _f(2) & _f(12) & _f(28) & _f(29) & _f(38) & Operation_mark_order_moving.1,(_f(4) => _f(40));
+_f(1) & _f(2) & _f(12) & _f(28) & _f(29) & _f(30) & Operation_mark_order_ready.6,(_f(31) & _f(4) => _f(37));
+_f(1) & _f(2) & _f(12) & _f(28) & _f(29) & _f(30) & Operation_mark_order_ready.5,(_f(4) => _f(36));
+_f(1) & _f(2) & _f(12) & _f(28) & _f(29) & _f(30) & Operation_mark_order_ready.4,(_f(4) => _f(35));
+_f(1) & _f(2) & _f(12) & _f(28) & _f(29) & _f(30) & Operation_mark_order_ready.3,(_f(4) => _f(34));
+_f(1) & _f(2) & _f(12) & _f(28) & _f(29) & _f(30) & Operation_mark_order_ready.2,(_f(4) => _f(33));
+_f(1) & _f(2) & _f(12) & _f(28) & _f(29) & _f(30) & Operation_mark_order_ready.1,(_f(4) => _f(32));
+_f(1) & _f(2) & _f(12) & _f(13) & _f(14) & _f(15) & _f(16) & Operation_create_order.10,(_f(17) & _f(4) => _f(27));
+_f(1) & _f(2) & _f(12) & _f(13) & _f(14) & _f(15) & _f(16) & Operation_create_order.9,(_f(4) => _f(26));
+_f(1) & _f(2) & _f(12) & _f(13) & _f(14) & _f(15) & _f(16) & Operation_create_order.8,(_f(4) => _f(25));
+_f(1) & _f(2) & _f(12) & _f(13) & _f(14) & _f(15) & _f(16) & Operation_create_order.7,(_f(4) => _f(24));
+_f(1) & _f(2) & _f(12) & _f(13) & _f(14) & _f(15) & _f(16) & Operation_create_order.6,(_f(4) => _f(23));
+_f(1) & _f(2) & _f(12) & _f(13) & _f(14) & _f(15) & _f(16) & Operation_create_order.5,(_f(4) => _f(22));
+_f(1) & _f(2) & _f(12) & _f(13) & _f(14) & _f(15) & _f(16) & Operation_create_order.4,(_f(4) => _f(21));
+_f(1) & _f(2) & _f(12) & _f(13) & _f(14) & _f(15) & _f(16) & Operation_create_order.3,(_f(4) => _f(20));
+_f(1) & _f(2) & _f(12) & _f(13) & _f(14) & _f(15) & _f(16) & Operation_create_order.2,(_f(4) => _f(19));
+_f(1) & _f(2) & _f(12) & _f(13) & _f(14) & _f(15) & _f(16) & Operation_create_order.1,(_f(4) => _f(18));
+_f(1) & _f(2) & Initialisation.7,(_f(3) & _f(4) => _f(11));
+_f(1) & _f(2) & Initialisation.6,(_f(4) => _f(10));
+_f(1) & _f(2) & Initialisation.5,(_f(4) => _f(9));
+_f(1) & _f(2) & Initialisation.4,(_f(4) => _f(8));
+_f(1) & _f(2) & Initialisation.3,(_f(4) => _f(7));
+_f(1) & _f(2) & Initialisation.2,(_f(4) => _f(6));
+_f(1) & _f(2) & Initialisation.1,(_f(4) => _f(5))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+PRODUCT: FIN(INTEGER) & not(PRODUCT = {}) & USER: FIN(INTEGER) & not(USER = {}) & ADDRESS: FIN(INTEGER) & not(ADDRESS = {}) & ((1..5)*{ORDER_STATE}): FIN(NATURAL*{ORDER_STATE})& not(((1..5)*{ORDER_STATE}) = {}) & ((1..2)*{DRIVER_STATE}): FIN(NATURAL*{DRIVER_STATE})& not(((1..2)*{DRIVER_STATE}) = {}) & ((QUEUE_SIZE) : (NAT)) & ((pp0) : (PRODUCT)) & (1 <= QUEUE_SIZE) & ((MAX_ORDERS) : ((NAT-{0}))) & ((MAX_STORAGE) : ((NAT-{0}))) & ((DRIVERS) : ((NAT-{0}))) & ((ROUTE_SIZE) : ((NAT-{0}))) & ((MAX_DISTANCE) : (NAT)) & ((default_addr) : (ADDRESS)) & ((default_user) : (USER));
+((oid) : (dom({})));
+"Invariant is preserved";
+(({}) : ((((NAT-{0})) +-> (NAT))));
+(({}) : ((((NAT-{0})) +-> (ADDRESS))));
+(({}) : ((((NAT-{0})) +-> (USER))));
+(({}) : ((((NAT-{0})) +-> (((1..5)*{ORDER_STATE})))));
+((1) : ((NAT-{0})));
+(card({}) <= MAX_ORDERS);
+(oid +1 <= 1);
+((what) : ((((NAT-{0})) +-> (NAT)))) & ((where) : ((((NAT-{0})) +-> (ADDRESS)))) & ((who) : ((((NAT-{0})) +-> (USER)))) & ((order_state) : ((((NAT-{0})) +-> (((1..5)*{ORDER_STATE}))))) & ((current_ident) : ((NAT-{0}))) & ((dom(what)) = (dom(order_state))) & ((dom(where)) = (dom(order_state))) & ((dom(who)) = (dom(order_state))) & (card(order_state) <= MAX_ORDERS) & !(oid).(((((oid) : (dom(order_state)))) => ((oid +1 <= current_ident))));
+((prod_qty) : (NAT));
+((aa) : (ADDRESS));
+((uu) : (USER));
+(card(order_state) +1 <= MAX_ORDERS);
+((oid) : (dom(((order_state) \/ (({((current_ident) |-> ((2|->ORDER_STATE)))}))))));
+((((what) \/ (({((current_ident) |-> (prod_qty))})))) : ((((NAT-{0})) +-> (NAT))));
+((((where) \/ (({((current_ident) |-> (aa))})))) : ((((NAT-{0})) +-> (ADDRESS))));
+((((who) \/ (({((current_ident) |-> (uu))})))) : ((((NAT-{0})) +-> (USER))));
+((((order_state) \/ (({((current_ident) |-> ((2|->ORDER_STATE)))})))) : ((((NAT-{0})) +-> (((1..5)*{ORDER_STATE})))));
+(((current_ident + 1)) : ((NAT-{0})));
+((dom(((what) \/ (({((current_ident) |-> (prod_qty))}))))) = (dom(((order_state) \/ (({((current_ident) |-> ((2|->ORDER_STATE)))}))))));
+((dom(((where) \/ (({((current_ident) |-> (aa))}))))) = (dom(((order_state) \/ (({((current_ident) |-> ((2|->ORDER_STATE)))}))))));
+((dom(((who) \/ (({((current_ident) |-> (uu))}))))) = (dom(((order_state) \/ (({((current_ident) |-> ((2|->ORDER_STATE)))}))))));
+(card(((order_state) \/ (({((current_ident) |-> ((2|->ORDER_STATE)))})))) <= MAX_ORDERS);
+(oid +1 <= (current_ident + 1));
+((oid) : ((NAT-{0})));
+((oid) : (dom(order_state)));
+(((order_state )(oid)) = ((2|->ORDER_STATE)));
+((oid$1) : (dom(((order_state) <+ (({((oid) |-> ((3|->ORDER_STATE)))}))))));
+((((order_state) <+ (({((oid) |-> ((3|->ORDER_STATE)))})))) : ((((NAT-{0})) +-> (((1..5)*{ORDER_STATE})))));
+((dom(what)) = (dom(((order_state) <+ (({((oid) |-> ((3|->ORDER_STATE)))}))))));
+((dom(where)) = (dom(((order_state) <+ (({((oid) |-> ((3|->ORDER_STATE)))}))))));
+((dom(who)) = (dom(((order_state) <+ (({((oid) |-> ((3|->ORDER_STATE)))}))))));
+(card(((order_state) <+ (({((oid) |-> ((3|->ORDER_STATE)))})))) <= MAX_ORDERS);
+(oid$1 +1 <= current_ident);
+(((order_state )(oid)) = ((3|->ORDER_STATE)));
+((oid$1) : (dom(((order_state) <+ (({((oid) |-> ((4|->ORDER_STATE)))}))))));
+((((order_state) <+ (({((oid) |-> ((4|->ORDER_STATE)))})))) : ((((NAT-{0})) +-> (((1..5)*{ORDER_STATE})))));
+((dom(what)) = (dom(((order_state) <+ (({((oid) |-> ((4|->ORDER_STATE)))}))))));
+((dom(where)) = (dom(((order_state) <+ (({((oid) |-> ((4|->ORDER_STATE)))}))))));
+((dom(who)) = (dom(((order_state) <+ (({((oid) |-> ((4|->ORDER_STATE)))}))))));
+(card(((order_state) <+ (({((oid) |-> ((4|->ORDER_STATE)))})))) <= MAX_ORDERS);
+(((order_state )(oid)) = ((4|->ORDER_STATE)));
+((oid$1) : (dom(((order_state) <+ (({((oid) |-> ((5|->ORDER_STATE)))}))))));
+((((order_state) <+ (({((oid) |-> ((5|->ORDER_STATE)))})))) : ((((NAT-{0})) +-> (((1..5)*{ORDER_STATE})))));
+((dom(what)) = (dom(((order_state) <+ (({((oid) |-> ((5|->ORDER_STATE)))}))))));
+((dom(where)) = (dom(((order_state) <+ (({((oid) |-> ((5|->ORDER_STATE)))}))))));
+((dom(who)) = (dom(((order_state) <+ (({((oid) |-> ((5|->ORDER_STATE)))}))))));
+(card(((order_state) <+ (({((oid) |-> ((5|->ORDER_STATE)))})))) <= MAX_ORDERS);
+((what) : ((((NAT-{0})) +-> (NAT))));
+((where) : ((((NAT-{0})) +-> (ADDRESS))));
+((who) : ((((NAT-{0})) +-> (USER))));
+((order_state) : ((((NAT-{0})) +-> (((1..5)*{ORDER_STATE})))));
+((current_ident) : ((NAT-{0})));
+((dom(what)) = (dom(order_state)));
+((dom(where)) = (dom(order_state)));
+((dom(who)) = (dom(order_state)));
+"Invariant is well defined";
+((order_state) : (FIN(order_state)));
+"Operation precondition is well defined";
+((order_state) : (((dom(order_state)) +-> (ran(order_state)))));
+"Operation is well defined";
+((oid) : (dom(who)));
+((who) : (((dom(who)) +-> (ran(who)))));
+((oid) : (dom(where)));
+((where) : (((dom(where)) +-> (ran(where)))))
+END
+&
+THEORY EnumerateX IS
+DRIVER_STATE == {AVAILABLE,BUSY};
+ORDER_STATE == {PLACED,PREPARING,READY,MOVING,DELIVERED}
+END

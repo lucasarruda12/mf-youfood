@@ -112,22 +112,26 @@ THEORY ListPreconditionX END
 THEORY ListSubstitutionX END
 &
 THEORY ListConstantsX IS
-  List_Valuable_Constants(Machine(Context))==(?);
+  List_Valuable_Constants(Machine(Context))==(MAX_ORDERS,MAX_STORAGE,DRIVERS,ROUTE_SIZE,MAX_DISTANCE,default_addr,default_user);
   Inherited_List_Constants(Machine(Context))==(?);
-  List_Constants(Machine(Context))==(?)
+  List_Constants(Machine(Context))==(MAX_ORDERS,MAX_STORAGE,DRIVERS,ROUTE_SIZE,MAX_DISTANCE,default_addr,default_user)
 END
 &
 THEORY ListSetsX IS
+  Set_Definition(Machine(Context),USER)==(?);
   Context_List_Enumerated(Machine(Context))==(?);
   Context_List_Defered(Machine(Context))==(PRODUCT);
   Context_List_Sets(Machine(Context))==(PRODUCT);
-  List_Valuable_Sets(Machine(Context))==(?);
+  List_Valuable_Sets(Machine(Context))==(USER,ADDRESS);
   Inherited_List_Enumerated(Machine(Context))==(?);
   Inherited_List_Defered(Machine(Context))==(?);
   Inherited_List_Sets(Machine(Context))==(?);
-  List_Enumerated(Machine(Context))==(?);
-  List_Defered(Machine(Context))==(?);
-  List_Sets(Machine(Context))==(?)
+  List_Enumerated(Machine(Context))==(ORDER_STATE,DRIVER_STATE);
+  List_Defered(Machine(Context))==(USER,ADDRESS);
+  List_Sets(Machine(Context))==(USER,ADDRESS,ORDER_STATE,DRIVER_STATE);
+  Set_Definition(Machine(Context),ADDRESS)==(?);
+  Set_Definition(Machine(Context),ORDER_STATE)==({PLACED,PREPARING,READY,MOVING,DELIVERED});
+  Set_Definition(Machine(Context),DRIVER_STATE)==({AVAILABLE,BUSY})
 END
 &
 THEORY ListHiddenConstantsX IS
@@ -141,7 +145,7 @@ THEORY ListPropertiesX IS
   Abstract_List_Properties(Machine(Context))==(btrue);
   Context_List_Properties(Machine(Context))==(QUEUE_SIZE: NAT & pp0: PRODUCT & QUEUE_SIZE>=1 & PRODUCT: FIN(INTEGER) & not(PRODUCT = {}));
   Inherited_List_Properties(Machine(Context))==(btrue);
-  List_Properties(Machine(Context))==(btrue)
+  List_Properties(Machine(Context))==(MAX_ORDERS: NAT1 & MAX_STORAGE: NAT1 & DRIVERS: NAT1 & ROUTE_SIZE: NAT1 & MAX_DISTANCE: NAT & default_addr: ADDRESS & default_user: USER & USER: FIN(INTEGER) & not(USER = {}) & ADDRESS: FIN(INTEGER) & not(ADDRESS = {}) & ORDER_STATE: FIN(INTEGER) & not(ORDER_STATE = {}) & DRIVER_STATE: FIN(INTEGER) & not(DRIVER_STATE = {}))
 END
 &
 THEORY ListSeenInfoX IS
@@ -158,9 +162,9 @@ END
 THEORY ListANYVarX END
 &
 THEORY ListOfIdsX IS
-  List_Of_Ids(Machine(Context)) == (? | ? | ? | ? | ? | ? | seen(Machine(Queue_ctx)) | ? | Context);
+  List_Of_Ids(Machine(Context)) == (MAX_ORDERS,MAX_STORAGE,DRIVERS,ROUTE_SIZE,MAX_DISTANCE,default_addr,default_user,USER,ADDRESS,ORDER_STATE,DRIVER_STATE,PLACED,PREPARING,READY,MOVING,DELIVERED,AVAILABLE,BUSY | ? | ? | ? | ? | ? | seen(Machine(Queue_ctx)) | ? | Context);
   List_Of_HiddenCst_Ids(Machine(Context)) == (? | ?);
-  List_Of_VisibleCst_Ids(Machine(Context)) == (?);
+  List_Of_VisibleCst_Ids(Machine(Context)) == (MAX_ORDERS,MAX_STORAGE,DRIVERS,ROUTE_SIZE,MAX_DISTANCE,default_addr,default_user);
   List_Of_VisibleVar_Ids(Machine(Context)) == (? | ?);
   List_Of_Ids_SeenBNU(Machine(Context)) == (?: ?);
   List_Of_Ids(Machine(Queue_ctx)) == (QUEUE_SIZE,pp0,PRODUCT | ? | ? | ? | ? | ? | ? | ? | Queue_ctx);
@@ -168,6 +172,14 @@ THEORY ListOfIdsX IS
   List_Of_VisibleCst_Ids(Machine(Queue_ctx)) == (QUEUE_SIZE,pp0);
   List_Of_VisibleVar_Ids(Machine(Queue_ctx)) == (? | ?);
   List_Of_Ids_SeenBNU(Machine(Queue_ctx)) == (?: ?)
+END
+&
+THEORY SetsEnvX IS
+  Sets(Machine(Context)) == (Type(USER) == Cst(SetOf(atype(USER,"[USER","]USER")));Type(ADDRESS) == Cst(SetOf(atype(ADDRESS,"[ADDRESS","]ADDRESS")));Type(ORDER_STATE) == Cst(SetOf(etype(ORDER_STATE,0,4)));Type(DRIVER_STATE) == Cst(SetOf(etype(DRIVER_STATE,0,1))))
+END
+&
+THEORY ConstantsEnvX IS
+  Constants(Machine(Context)) == (Type(PLACED) == Cst(etype(ORDER_STATE,0,4));Type(PREPARING) == Cst(etype(ORDER_STATE,0,4));Type(READY) == Cst(etype(ORDER_STATE,0,4));Type(MOVING) == Cst(etype(ORDER_STATE,0,4));Type(DELIVERED) == Cst(etype(ORDER_STATE,0,4));Type(AVAILABLE) == Cst(etype(DRIVER_STATE,0,1));Type(BUSY) == Cst(etype(DRIVER_STATE,0,1));Type(MAX_ORDERS) == Cst(btype(INTEGER,?,?));Type(MAX_STORAGE) == Cst(btype(INTEGER,?,?));Type(DRIVERS) == Cst(btype(INTEGER,?,?));Type(ROUTE_SIZE) == Cst(btype(INTEGER,?,?));Type(MAX_DISTANCE) == Cst(btype(INTEGER,?,?));Type(default_addr) == Cst(atype(ADDRESS,?,?));Type(default_user) == Cst(atype(USER,?,?)))
 END
 &
 THEORY TCIntRdX IS

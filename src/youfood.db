@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<db_xml>
+    <atelierb version="3_7_ubuntu-cvs" />
+    <project decomp_dir="/home/jorgelino/Documents/mf-youfood/src/expand_src" old_decomp_dir="/home/jorgelino/Documents/mf-youfood/src/src">
+        <!-- Definition directory list -->
+        <definition_dir path="/home/jorgelino/Documents/mf-youfood" />
+        <!-- Proof mechanisms -->
+        <!-- Component file list -->
+        <component_file path="/home/jorgelino/Documents/mf-youfood" name="Context" suffix="mch" user="jorgelino">
+            <component name="Context" type="specification" />
+        </component_file>
+        <component_file path="/home/jorgelino/Documents/mf-youfood" name="Context_i" suffix="imp" user="jorgelino">
+            <component name="Context_i" type="implementation" />
+        </component_file>
+        <component_file path="/home/jorgelino/Documents/mf-youfood" name="Orders" suffix="mch" user="jorgelino">
+            <component name="Orders" type="specification" />
+        </component_file>
+        <component_file path="/home/jorgelino/Documents/mf-youfood" name="Orders_i" suffix="imp" user="jorgelino">
+            <component name="Orders_i" type="implementation" />
+        </component_file>
+        <component_file path="/home/jorgelino/Documents/mf-youfood" name="Queue" suffix="mch" user="jorgelino">
+            <component name="Queue" type="specification" />
+        </component_file>
+        <component_file path="/home/jorgelino/Documents/mf-youfood" name="Queue_ctx" suffix="mch" user="jorgelino">
+            <component name="Queue_ctx" type="specification" />
+        </component_file>
+        <component_file path="/home/jorgelino/Documents/mf-youfood" name="Queue_ctx_i" suffix="imp" user="jorgelino">
+            <component name="Queue_ctx_i" type="implementation" />
+        </component_file>
+        <component_file path="/home/jorgelino/Documents/mf-youfood" name="Queue_i" suffix="imp" user="jorgelino">
+            <component name="Queue_i" type="implementation" />
+        </component_file>
+    </project>
+</db_xml>

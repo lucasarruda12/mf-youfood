@@ -1,0 +1,33 @@
+THEORY ProofList IS
+_f(1) & _f(2) & ValuesLemmas.10,(_f(3) => _f(13));
+_f(1) & _f(2) & ValuesLemmas.9,(_f(3) => _f(12));
+_f(1) & _f(2) & ValuesLemmas.8,(_f(3) => _f(11));
+_f(1) & _f(2) & ValuesLemmas.7,(_f(3) => _f(10));
+_f(1) & _f(2) & ValuesLemmas.6,(_f(3) => _f(9));
+_f(1) & _f(2) & ValuesLemmas.5,(_f(3) => _f(8));
+_f(1) & _f(2) & ValuesLemmas.4,(_f(3) => _f(7));
+_f(1) & _f(2) & ValuesLemmas.3,(_f(3) => _f(6));
+_f(1) & _f(2) & ValuesLemmas.2,(_f(3) => _f(5));
+_f(1) & _f(2) & ValuesLemmas.1,(_f(3) => _f(4))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+PRODUCT: FIN(INTEGER) & not(PRODUCT = {}) & ((QUEUE_SIZE) : (NAT)) & ((pp0) : (PRODUCT)) & (1 <= QUEUE_SIZE);
+"Valuation is correct";
+((30) : ((NAT-{0})));
+((10) : ((NAT-{0})));
+((5) : ((NAT-{0})));
+((100) : (NAT));
+((0) : (((0) .. (50))));
+((0) : (((0) .. (100))));
+((((0) .. (100))) : (FIN(INTEGER)));
+not(((((0) .. (100))) = ({})));
+((((0) .. (50))) : (FIN(INTEGER)));
+not(((((0) .. (50))) = ({})))
+END
+&
+THEORY EnumerateX IS
+DRIVER_STATE == {AVAILABLE,BUSY};
+ORDER_STATE == {PLACED,PREPARING,READY,MOVING,DELIVERED}
+END

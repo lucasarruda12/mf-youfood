@@ -1,5 +1,5 @@
 THEORY BalanceX IS
-Context,0,0,0,0,0,0,0
+Queue_ctx,0,0,0,0,0,0,0
 END
 &
 THEORY ProofState
@@ -12,5 +12,5 @@ THEORY PassList
 END
 &
 THEORY Status IS
-Context,0,0,0,0,0,0
+Queue_ctx,0,0,0,0,0,0
 END

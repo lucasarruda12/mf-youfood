@@ -11,6 +11,230 @@
 <Name>Queue_ctx</Name>
 </Referenced_Machine>
 </Sees>
+<Sets>
+<Attr>
+<Pos l='11' c='1' s='4'/>
+</Attr>
+<Set>
+<Id value='USER' typref='4'>
+<Attr>
+<Pos l='12' c='5' s='4'/>
+</Attr>
+</Id>
+</Set>
+<Set>
+<Id value='ADDRESS' typref='5'>
+<Attr>
+<Pos l='13' c='5' s='7'/>
+</Attr>
+</Id>
+</Set>
+<Set>
+<Id value='ORDER_STATE' typref='6'>
+<Attr>
+<Pos l='14' c='5' s='11'/>
+</Attr>
+</Id>
+<Enumerated_Values>
+<Id value='PLACED' typref='7'>
+<Attr>
+<Pos l='14' c='20' s='6'/>
+</Attr>
+</Id>
+<Id value='PREPARING' typref='7'>
+<Attr>
+<Pos l='14' c='28' s='9'/>
+</Attr>
+</Id>
+<Id value='READY' typref='7'>
+<Attr>
+<Pos l='14' c='39' s='5'/>
+</Attr>
+</Id>
+<Id value='MOVING' typref='7'>
+<Attr>
+<Pos l='14' c='46' s='6'/>
+</Attr>
+</Id>
+<Id value='DELIVERED' typref='7'>
+<Attr>
+<Pos l='14' c='54' s='9'/>
+</Attr>
+</Id>
+</Enumerated_Values>
+</Set>
+<Set>
+<Id value='DRIVER_STATE' typref='8'>
+<Attr>
+<Pos l='15' c='5' s='12'/>
+</Attr>
+</Id>
+<Enumerated_Values>
+<Id value='AVAILABLE' typref='9'>
+<Attr>
+<Pos l='15' c='21' s='9'/>
+</Attr>
+</Id>
+<Id value='BUSY' typref='9'>
+<Attr>
+<Pos l='15' c='32' s='4'/>
+</Attr>
+</Id>
+</Enumerated_Values>
+</Set>
+</Sets>
+<Concrete_Constants>
+<Attr>
+<Pos l='17' c='1' s='18'/>
+</Attr>
+<Id value='MAX_ORDERS' typref='1'>
+<Attr>
+<Pos l='18' c='5' s='10'/>
+</Attr>
+</Id>
+<Id value='MAX_STORAGE' typref='1'>
+<Attr>
+<Pos l='19' c='5' s='11'/>
+</Attr>
+</Id>
+<Id value='DRIVERS' typref='1'>
+<Attr>
+<Pos l='20' c='5' s='7'/>
+</Attr>
+</Id>
+<Id value='ROUTE_SIZE' typref='1'>
+<Attr>
+<Pos l='21' c='5' s='10'/>
+</Attr>
+</Id>
+<Id value='MAX_DISTANCE' typref='1'>
+<Attr>
+<Pos l='22' c='5' s='12'/>
+</Attr>
+</Id>
+<Id value='default_addr' typref='10'>
+<Attr>
+<Pos l='23' c='5' s='12'/>
+</Attr>
+</Id>
+<Id value='default_user' typref='11'>
+<Attr>
+<Pos l='24' c='5' s='12'/>
+</Attr>
+</Id>
+</Concrete_Constants>
+<Properties>
+<Attr>
+<Pos l='26' c='1' s='10'/>
+</Attr>
+<Nary_Pred op='&amp;'>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='27' c='16' s='1'/>
+</Attr>
+<Id value='MAX_ORDERS' typref='1'>
+<Attr>
+<Pos l='27' c='5' s='10'/>
+</Attr>
+</Id>
+<Id value='NAT1' typref='2'>
+<Attr>
+<Pos l='27' c='18' s='4'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='28' c='17' s='1'/>
+</Attr>
+<Id value='MAX_STORAGE' typref='1'>
+<Attr>
+<Pos l='28' c='5' s='11'/>
+</Attr>
+</Id>
+<Id value='NAT1' typref='2'>
+<Attr>
+<Pos l='28' c='19' s='4'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='29' c='13' s='1'/>
+</Attr>
+<Id value='DRIVERS' typref='1'>
+<Attr>
+<Pos l='29' c='5' s='7'/>
+</Attr>
+</Id>
+<Id value='NAT1' typref='2'>
+<Attr>
+<Pos l='29' c='15' s='4'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='30' c='16' s='1'/>
+</Attr>
+<Id value='ROUTE_SIZE' typref='1'>
+<Attr>
+<Pos l='30' c='5' s='10'/>
+</Attr>
+</Id>
+<Id value='NAT1' typref='2'>
+<Attr>
+<Pos l='30' c='18' s='4'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='31' c='18' s='1'/>
+</Attr>
+<Id value='MAX_DISTANCE' typref='1'>
+<Attr>
+<Pos l='31' c='5' s='12'/>
+</Attr>
+</Id>
+<Id value='NAT' typref='2'>
+<Attr>
+<Pos l='31' c='20' s='3'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='32' c='18' s='1'/>
+</Attr>
+<Id value='default_addr' typref='10'>
+<Attr>
+<Pos l='32' c='5' s='12'/>
+</Attr>
+</Id>
+<Id value='ADDRESS' typref='5'>
+<Attr>
+<Pos l='32' c='20' s='7'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='33' c='18' s='1'/>
+</Attr>
+<Id value='default_user' typref='11'>
+<Attr>
+<Pos l='33' c='5' s='12'/>
+</Attr>
+</Id>
+<Id value='USER' typref='4'>
+<Attr>
+<Pos l='33' c='20' s='4'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Nary_Pred>
+</Properties>
 <Initialisation>
 <Skip/>
 </Initialisation>
@@ -32,6 +256,38 @@
 <Id value='INTEGER'/>
 </Unary_Exp>
 </Unary_Exp>
+</Type>
+<Type id='4'>
+<Unary_Exp op='POW'>
+<Id value='USER'/>
+</Unary_Exp>
+</Type>
+<Type id='5'>
+<Unary_Exp op='POW'>
+<Id value='ADDRESS'/>
+</Unary_Exp>
+</Type>
+<Type id='6'>
+<Unary_Exp op='POW'>
+<Id value='ORDER_STATE'/>
+</Unary_Exp>
+</Type>
+<Type id='7'>
+<Id value='ORDER_STATE'/>
+</Type>
+<Type id='8'>
+<Unary_Exp op='POW'>
+<Id value='DRIVER_STATE'/>
+</Unary_Exp>
+</Type>
+<Type id='9'>
+<Id value='DRIVER_STATE'/>
+</Type>
+<Type id='10'>
+<Id value='ADDRESS'/>
+</Type>
+<Type id='11'>
+<Id value='USER'/>
 </Type>
 </TypeInfos>
 
